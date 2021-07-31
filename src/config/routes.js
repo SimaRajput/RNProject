@@ -5,6 +5,7 @@ import {Loader} from '../components';
 import Login from '../containers/auth/Login';
 import Signup from '../containers/auth/Signup';
 import Welcome from '../containers/Welcome';
+import LoginSecurity from '../containers/auth/login-security'
 
 export default {
   ChangePassword: {screen: ChangePassword},
@@ -14,4 +15,5 @@ export default {
   Login: {screen: Login},
   Signup: {screen: Signup},
   Welcome: {screen: Welcome},
+  LoginSecurity: {screen: LoginSecurity}
 };

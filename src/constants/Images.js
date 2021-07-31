@@ -1,9 +1,15 @@
 /* eslint-disable global-require */
 
 import Back from '../assets/images/back_arrow.svg';
+import Bubble from '../assets/images/bubble.svg';
+import Face from '../assets/images/face.svg';
+import Scan from '../assets/images/scan.svg'
 
 module.exports = {
   Back,
+  Bubble,
+  Face,
+  Scan,
   back: require('../assets/images/back.png'),
   logo: require('../assets/images/logo.png'),
   internet : require('../assets/images/internet.gif'),

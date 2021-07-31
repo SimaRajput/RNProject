@@ -85,6 +85,29 @@ const styles = {
   getUpdateText: {
     color:Constants.Colors.GRAY,
     ...Constants.Fonts.MavenPro.regularBold,
+  },
+
+  /// Login Security Screen Style
+  subContainer: {
+    alignItems:'center'
+  },
+  textHere: {
+    position:'absolute',
+    bottom:570,
+    ...Constants.Fonts.OpenSans.mediumSemiBold
+  },
+  logoContainer: {
+    marginTop:(Constants.BaseStyle.DEVICE_HEIGHT / 100) * 5,
+  },
+  textLabel: {
+    paddingVertical: (Constants.BaseStyle.DEVICE_HEIGHT / 100) * 3.5,
+    ...Constants.Fonts.OpenSans.regular,
+    color: Constants.Colors.TEXT_COLOR
+  },
+  orText: {
+    paddingVertical: (Constants.BaseStyle.DEVICE_HEIGHT / 100) * 1,
+    ...Constants.Fonts.OpenSans.smallSemiBold,
+    color: Constants.Colors.GRAY
   }
 };
 

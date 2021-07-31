@@ -17,6 +17,9 @@ const styles = StyleSheet.create({
     backgroundColor: Constants.Colors.White,
     flex: 1,
   },
+  safeArea: {
+    flex:1
+  }
 });
 
 class src extends React.Component {
@@ -81,7 +84,7 @@ class src extends React.Component {
     const { connection_Status} = this.state;
     
     return (
-      
+      <SafeAreaView style={styles.safeArea}>
       <View style={styles.container}>
         <Provider store={store}>
           <PersistGate loading={<Loader />} persistor={persistor}>
@@ -90,6 +93,7 @@ class src extends React.Component {
           </PersistGate>
         </Provider> 
       </View>
+      </SafeAreaView>
      
     );
   }

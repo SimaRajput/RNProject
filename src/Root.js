@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
 const Root = () => (
   <View style={styles.container}>
     {Platform.OS === 'android' && (
-      <StatusBar backgroundColor={Constants.Colors.AccentColor} />
+      <StatusBar backgroundColor={Constants.Colors.WHITE} barStyle={'dark-content'}/>
     )}
     <Progress />
     <Navigator />

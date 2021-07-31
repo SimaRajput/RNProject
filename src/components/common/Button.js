@@ -23,9 +23,10 @@ const styles = StyleSheet.create({
   },
   text: {
     color: Constants.Colors.WHITE,
-    ...Constants.Fonts.MavenPro.regularBold,
+    ...Constants.Fonts.OpenSans.regularBold,
     marginLeft: 10,
-    fontWeight:'bold'
+    fontWeight:'bold',
+    lineHeight:19,
   },
 });
 

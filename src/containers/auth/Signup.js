@@ -130,7 +130,7 @@ class Signup extends React.Component {
 
     return (
       <View style={AuthStyles.container}>
-        <Header hideIcon={false}/>
+        <Header hideRightIcon={true}/>
         <Text style={AuthStyles.label}>{personalDetails}</Text>
         <View style={AuthStyles.content}>
           <ScrollView

@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { StyleSheet, View, Image,ImageBackground } from 'react-native';
+import { StyleSheet, View, Image,ImageBackground,Text } from 'react-native';
 import { func, shape } from 'prop-types';
 import Constants from '../constants';
 import { Button } from '../components';
@@ -31,11 +31,22 @@ const styles = StyleSheet.create({
     width: (Constants.BaseStyle.DEVICE_WIDTH / 100) * 50,
   },
   imagebackground: {
-    height:'100%',
-    width:'100%'
+    height:null,
+    width:null,
+    flex:1
+    
   },
   textStyle: {
     color:Constants.Colors.BUTTON_COLOR
+  },
+  subContainer: {
+    alignItems:'center',
+    top:40
+  },
+  textHere: {
+    position:'absolute',
+    bottom:80,
+    ...Constants.Fonts.OpenSans.mediumSemiBold
   }
 });
 
@@ -52,28 +63,32 @@ class Welcome extends PureComponent {
     const {
       signup: { signup },
       login : { login },
+      common: { textHere }
     } = Constants.i18n;
 
     return (
-      <View style={styles.container}>
-        <ImageBackground source={Constants.Images.welcome} style={styles.imagebackground}>
+        <ImageBackground source={Constants.Images.welcome} style={styles.imagebackground} >
+        <View style={styles.subContainer}>
+      <Constants.Images.Bubble/>
+      <Text style={styles.textHere}>{textHere}</Text>
+      </View>
         <View style={styles.content}>
           <Button
-            onPress={() => navigate('Signup')}
+            onPress={() => navigate('LoginSecurity')}
             style={styles.buttonStyle}
             title={login}
             textStyle={styles.textStyle}
           />
           <Button
-            onPress={() => navigate('Login')}
+            onPress={() => navigate('Signup')}
             style={styles.buttonStyle1}
             title={signup}
           />
         </View>
         </ImageBackground>  
-         </View>
     );
   }
 }
 
 export default Welcome;
+

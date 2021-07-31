@@ -18,6 +18,9 @@ const i18n = {
     success: 'Success',
     twitter: 'Twitter',
     yes: 'Yes',
+    textHere: 'Text here....',
+    faceDetector:'Face Detector',
+    fingerPrint: 'Fingerprint Scanner'
   },
   forgotPass: {
     desciption: 'Enter your email below and we will send you reset link.',

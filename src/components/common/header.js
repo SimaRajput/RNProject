@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     shadowColor: 'gray',
     color: Constants.Colors.TRANSPARENT,
-    height: 60,
+    height: 50,
   },
   content: {
     flexDirection: 'row',
@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
 function Header(props) {
   const {
     hideleftIcon,
-    hideIcon,
+    hideRightIcon,
     iconName,
     onPressBack,
     style,
@@ -53,7 +53,6 @@ function Header(props) {
   } = props;
 
   return (
-    <SafeAreaView>
       <View style={[styles.container, style]}>
         <TouchableOpacity
           hitSlop={Constants.BaseStyle.HIT_SLOP}
@@ -64,15 +63,14 @@ function Header(props) {
           {!hideleftIcon && <Image source={iconName} style={styles.iconStyle} />}
         </TouchableOpacity>
         <Text numberOfLines={1} style={[styles.textStyle, textStyle]}>{text}</Text>
-        {!hideIcon ? <TouchableOpacity onPress={onPressRight} style={styles.rightSideView}><Image source={iconName} style={styles.iconStyle} /></TouchableOpacity> : null}
+        {!hideRightIcon ? <TouchableOpacity onPress={onPressRight} style={styles.rightSideView}><Image source={iconName} style={styles.iconStyle} /></TouchableOpacity> : null}
       </View>
-    </SafeAreaView>
   );
 };
 
 Header.propTypes = {
   hideleftIcon: bool,
-  hideIcon: bool,
+  hideRightIcon: bool,
   onPressBack: func,
   style: ViewPropTypes.style,
   text: string,
