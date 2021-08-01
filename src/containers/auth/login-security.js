@@ -14,7 +14,7 @@ class LoginSecurity extends PureComponent {
   
 
   render() {
-    const { navigation: { navigate } } = this.props;
+    const { navigation: { navigate, goBack } } = this.props;
     const {
       signup: { signup },
       login : { login },
@@ -23,11 +23,11 @@ class LoginSecurity extends PureComponent {
 
     return (
       <ScrollView style={AuthStyles.container} showsVerticalScrollIndicator={false}>
-          <Header  hideRightIcon={true}/>
+          <Header hideRightIcon={true} onPressBack={()=> goBack()}/>
           <View style={AuthStyles.subContainer}>
       <Constants.Images.Bubble/>
       <Text style={AuthStyles.textHere}>{textHere}</Text>
-      <TouchableOpacity style={AuthStyles.logoContainer}>
+      <TouchableOpacity style={AuthStyles.logoContainer} onPress={()=> navigate('Login')}>
       <Constants.Images.Face/>
       </TouchableOpacity>
       <Text style={AuthStyles.textLabel}>{faceDetector}</Text>

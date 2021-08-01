@@ -21,6 +21,7 @@ import {AuthStyles} from '../../styles';
 import {Button, TextInput,Header} from '../../components';
 import * as userActions from '../../actions/user-actions-types';
 import { TextField } from 'react-native-material-textfield';
+import { color } from 'react-native-reanimated';
 
 class Login extends React.Component {
   static propTypes = {
@@ -126,17 +127,17 @@ handleScrollView = ref => {
   render() {
     const {email, password, errorLabel, emailError, passwordError} = this.state;
     const {
-      navigation: {navigate},
+      navigation: { navigate, goBack },
     } = this.props;
     const {
-      common: { forgotPass },
+      common: { forgotPass,textHere },
       login: { emailId, passwordText, login },
       signup: { signup, createAccount },
     } = Constants.i18n;
 
     return (
       <View style={AuthStyles.container}>
-        <Header/>
+        <Header hideRightIcon={true} onPressBack={()=> goBack()}/>
         <View style={AuthStyles.content}>
           <ScrollView
             ref={this.scrollViewRef}
@@ -144,12 +145,12 @@ handleScrollView = ref => {
             showsVerticalScrollIndicator={false}
             keyboardDismissMode={Platform.OS === 'ios' ? 'on-drag' : 'none'}
             keyboardShouldPersistTaps="always">
-            <Image
-              source={Constants.Images.logo}
-              style={AuthStyles.logoStyle}
-              resizeMode='contain'
-            />
+              <View style={AuthStyles.bubbleContainer}>
+              <Constants.Images.Bubble/>
+              <Text style={AuthStyles.loginTexthere}>{textHere}</Text>
+              <Constants.Images.LogoLogin style={AuthStyles.logoIcon}/>
              {errorLabel !== '' && <Text >{`*${errorLabel}`} </Text>}
+             </View>
             <TextField
             activeLineWidth={1}
             ref={this.usernameRef}
@@ -166,7 +167,7 @@ handleScrollView = ref => {
             labelTextStyle={Constants.Colors.BLACK}
             titleTextStyle={Constants.Colors.BLACK}
             labelPadding={15}
-            containerStyle={{ marginBottom: 15 }}
+            containerStyle={{ marginBottom: 15,marginTop:60 }}
             textContentType={'emailAddress'}
             autoCapitalize={'none'}
             onFocus={() => {
@@ -176,6 +177,7 @@ handleScrollView = ref => {
               this.resetScrollView(findNodeHandle(this.usernameRef.current));
             }}
             onSubmitEditing={() => this.passwordRef.current.focus()}
+            labelTextStyle={{color:'red',fontSize:70}}
           />
            <TextField
             activeLineWidth={1}
@@ -220,7 +222,7 @@ handleScrollView = ref => {
             <View style={AuthStyles.bottomViewStyle}>
             <TouchableOpacity
               hitSlop={Constants.BaseStyle.HIT_SLOP}
-              onPress={() => navigate('Signup')}
+              onPress={() => navigate('Signup1')}
               activeOpacity={0.9}>
               <Text style={AuthStyles.extDecorationLineStyle}>
                 {createAccount}

@@ -3,13 +3,19 @@
 import Back from '../assets/images/back_arrow.svg';
 import Bubble from '../assets/images/bubble.svg';
 import Face from '../assets/images/face.svg';
-import Scan from '../assets/images/scan.svg'
+import Scan from '../assets/images/scan.svg';
+import LogoLogin from '../assets/images/logo_login.svg';
+import CheckBox from '../assets/images/checkbox.svg';
+import CheckBoxActive from '../assets/images/checkbox_active.svg'
 
 module.exports = {
   Back,
   Bubble,
   Face,
   Scan,
+  LogoLogin,
+  CheckBox,
+  CheckBoxActive,
   back: require('../assets/images/back.png'),
   logo: require('../assets/images/logo.png'),
   internet : require('../assets/images/internet.gif'),

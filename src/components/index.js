@@ -9,7 +9,8 @@ import Picker from './common/Picker';
 import Progress from './common/Progress';
 import Separator from './common/item-separator';
 import Timer from './common/Timer';
-import Header from './common/header'
+import Header from './common/header';
+import PhoneNumberInput from './common/phoneNumberInput';
 
 export {
   AnimatedModal,
@@ -23,5 +24,6 @@ export {
   Separator,
   TextInput,
   Timer,
-  Header
+  Header,
+  PhoneNumberInput
 };

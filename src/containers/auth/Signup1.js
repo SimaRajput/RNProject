@@ -8,7 +8,6 @@ import {
   Text,
   Platform,
   TouchableOpacity,
-  CheckBox
 } from 'react-native';
 import _ from 'lodash';
 import {func, shape} from 'prop-types';
@@ -18,10 +17,10 @@ import {ToastActionsCreators} from 'react-native-redux-toast';
 import Regex from '../../utilities/Regex';
 import Constants from '../../constants';
 import {AuthStyles} from '../../styles';
-import {Button, TextInput,Header} from '../../components';
+import {Button, TextInput,Header,PhoneNumberInput} from '../../components';
 import { TextField } from 'react-native-material-textfield';
 
-class Signup extends React.Component {
+class Signup1 extends React.Component {
   static propTypes = {
     navigation: shape({
       dispatch: func.isRequired,
@@ -34,10 +33,15 @@ class Signup extends React.Component {
     fullName :'',
     fullNameError:'',
     emailError: '',
+    passwordError: '',
     email: '',
+    countryCode: '91',
+    phoneNumber:'',
+    isValidNumber: false,
     password: '',
     zipCode: '',
-    getEmailUpdate: false
+    getEmailUpdate: false,
+    termsCondition: false
   };
 
   fullnameRef = React.createRef();
@@ -117,15 +121,22 @@ class Signup extends React.Component {
     }, 300);
   };
 
+   onChangeNumber = (val) => {
+    this.setState({ phoneNumber: val, isValidNumber: phone?.isValidNumber(val)})
+    // setIsValidNumber(phone?.isValidNumber(val))
+
+  }
+
   render() {
-    const {fullName, email, password, fullNameError,emailError, getEmailUpdate, zipCode } = this.state;
+    const {fullName, email, password, fullNameError,emailError, getEmailUpdate, zipCode, passwordError,termsCondition,phoneNumber,isValidNumber } = this.state;
     const {
       navigation: {navigate},
     } = this.props;
     const {
-      common: { emailAddress, password: passwordText, or },
-      signup: { alreadyUser, createAccount, personalDetails, fullnameLabel , getupdatefromEmail,zipCideLabel },
-      login : { emailId },
+      common: { emailAddress, or },
+      signup: { createAccount, personalDetails, fullnameLabel , getupdatefromEmail,zipCideLabel, alreadyHaveAccount },
+      login : { emailId, passwordText, login },
+      button: { next },
     } = Constants.i18n;
 
     return (
@@ -139,21 +150,6 @@ class Signup extends React.Component {
             showsVerticalScrollIndicator={false}
             keyboardDismissMode={Platform.OS === 'ios' ? 'on-drag' : 'none'}
             keyboardShouldPersistTaps="always">
-            {/* <TextInput
-              container={AuthStyles.signupTextInputContainer}
-              ref={this.emailRef}
-              value={fullName}
-              placeholder={fullnameLabel}
-              returnKeyType="next"
-              onChangeText={value => this.setState({email: value})}
-              onFocus={() => {
-                this.handleScrollView(findNodeHandle(this.emailRef.current));
-              }}
-              onBlur={() => {
-                this.resetScrollView(findNodeHandle(this.emailRef.current));
-              }}
-              onSubmitEditing={() => this.passwordRef.current.focus()}
-            /> */}
             <TextField
             activeLineWidth={1}
             ref={this.fullnameRef}
@@ -206,12 +202,18 @@ class Signup extends React.Component {
             onBlur={() => {
               this.resetScrollView(findNodeHandle(this.fullnameRef.current));
             }}
-            // onSubmitEditing={() => this.passwordRef.current.focus()}
+            onSubmitEditing={() => this.zipCodeRef.current.focus()}
           />
           <View style={AuthStyles.getUpdate}>
-           <CheckBox tintColors={{ true: Constants.Colors.BUTTON_COLOR, }} value={getEmailUpdate} onValueChange={() => this.setState({ getEmailUpdate: !getEmailUpdate })} />
+            <TouchableOpacity onPress={()=>this.setState({ getEmailUpdate: !getEmailUpdate })}>
+           {getEmailUpdate ? <Constants.Images.CheckBox height={18} width={18}/> : <Constants.Images.CheckBoxActive height={18} width={18}/>}</TouchableOpacity>
            <Text style={AuthStyles.getUpdateText}>{getupdatefromEmail}</Text>
            </View>
+           <PhoneNumberInput
+            phoneNumber={phoneNumber}
+            onChangeNumber={this.onChangeNumber}
+            isValidNumber={isValidNumber}
+            returnCountryCode={(dialCode) => this.setState({ countryCode:dialCode})} />
            <TextField
             activeLineWidth={1}
             ref={this.zipCodeRef}
@@ -224,7 +226,7 @@ class Signup extends React.Component {
             error={emailError}
             keyboardType={'email-address'}
             returnKeyType={'next'}
-            placeholder={'Enter here'}
+            // placeholder={'Enter here'}
             placeholderTextColor={Constants.Colors.GRAY}
             labelTextStyle={Constants.Colors.BLACK}
             titleTextStyle={Constants.Colors.BLACK}
@@ -238,44 +240,65 @@ class Signup extends React.Component {
             onBlur={() => {
               this.resetScrollView(findNodeHandle(this.fullnameRef.current));
             }}
+            onSubmitEditing={() => this.passwordRef.current.focus()}
+          />
+           <TextField
+            activeLineWidth={1}
+            ref={this.passwordRef}
+            label={passwordText}
+            labelFontSize={12}
+            value={password}
+            onChangeText={text => this.changeHandler('password', text)}
+            tintColor={Constants.Colors.GRAY}
+            errorColor={Constants.Colors.ERROR}
+            error={passwordError}
+            keyboardType={'email-address'}
+            returnKeyType={'next'}
+            placeholderTextColor={Constants.Colors.GRAY}
+            labelTextStyle={Constants.Colors.BLACK}
+            titleTextStyle={Constants.Colors.BLACK}
+            labelPadding={15}
+            containerStyle={{ marginBottom: 20 }}
+            textContentType={'emailAddress'}
+            autoCapitalize={'none'}
+            onFocus={() => {
+              this.handleScrollView(findNodeHandle(this.passwordRef.current));
+            }}
+            onBlur={() => {
+              this.resetScrollView(findNodeHandle(this.passwordRef.current));
+            }}
+            renderRightAccessory={()=><Constants.Images.Back/>}
             // onSubmitEditing={() => this.passwordRef.current.focus()}
           />
-            <TextInput
-              ref={this.passwordRef}
-              value={password}
-              placeholder={passwordText}
-              returnKeyType="done"
-              secureTextEntry
-              maxLength={16}
-              onChangeText={pass => this.setState({password: pass})}
-              onFocus={() => {
-                this.handleScrollView(findNodeHandle(this.passwordRef.current));
-              }}
-              onBlur={() => {
-                this.resetScrollView(findNodeHandle(this.passwordRef.current));
-              }}
-              onSubmitEditing={this.onSubmit}
-            />
+          <View style={AuthStyles.getUpdate}>
+            <TouchableOpacity onPress={()=>this.setState({ termsCondition: !termsCondition })}>
+           {termsCondition ? <Constants.Images.CheckBox height={18} width={18}/> : <Constants.Images.CheckBoxActive height={18} width={18}/>}</TouchableOpacity>
+           <Text style={AuthStyles.termsText}>{'I accept'}</Text>
+           <Text style={[AuthStyles.termsText,{color: Constants.Colors.PRIMARY_COLOR}]}>{' Terms & Conditions'}</Text>
+           <Text style={AuthStyles.termsText}>{' of company'}</Text>
+           </View>
             <Button
               onPress={this.onSubmit}
               style={AuthStyles.buttonStyle}
-              title={createAccount}
+              title={next}
             />
-            <Text style={AuthStyles.sepratorStyle}>{or}</Text>
+            <View style={AuthStyles.bottomViewStyle}>
             <TouchableOpacity
               hitSlop={Constants.BaseStyle.HIT_SLOP}
-              onPress={() => navigate('Login')}
+              onPress={() => navigate('Signup1')}
               activeOpacity={0.9}>
-              <Text style={AuthStyles.textDecorationLineStyle}>
-                {alreadyUser}
+              <Text style={AuthStyles.extDecorationLineStyle}>
+                {alreadyHaveAccount}
               </Text>
             </TouchableOpacity>
+            <Text style={AuthStyles.signupLineStyle}>{' '+login}</Text>
+            </View>
           </ScrollView>
         </View>
       </View>
     );
   }
 }
-ReactMixin(Signup.prototype, TimerMixin);
+ReactMixin(Signup1.prototype, TimerMixin);
 
-export default Signup;
+export default Signup1;

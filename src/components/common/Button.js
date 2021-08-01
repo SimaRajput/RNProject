@@ -12,13 +12,13 @@ const styles = StyleSheet.create({
   style: {
     alignItems: 'center',
     backgroundColor: Constants.Colors.BUTTON_COLOR,
-    borderRadius: 20,
+    borderRadius: 24,
     flexDirection: 'row',
     justifyContent: 'center',
-    width: (Constants.BaseStyle.DEVICE_WIDTH * 100) / 90,
+    width: (Constants.BaseStyle.DEVICE_WIDTH * 100) / 88,
     ...ifIphoneX(
-      { height: (Constants.BaseStyle.DEVICE_HEIGHT * 6) / 100 },
-      { height: (Constants.BaseStyle.DEVICE_HEIGHT * 7) / 100 }
+      { height: (Constants.BaseStyle.DEVICE_HEIGHT * 6.5) / 100 },
+      { height: (Constants.BaseStyle.DEVICE_HEIGHT * 7.5) / 100 }
     ),
   },
   text: {

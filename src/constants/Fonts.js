@@ -283,8 +283,12 @@ const Fonts = {
       fontFamily:  Platform.OS === 'ios' ? 'OpenSans-Bold' : 'OpenSans_Bold',
       fontSize: moderateScale(14),
     },
-    smallBold: {
+    smallRegular: {
       fontFamily: Platform.OS === 'ios' ? 'OpenSans-Regular' : 'OpenSans_Regular',
+      fontSize: moderateScale(12),
+    },
+    smallBold: {
+      fontFamily: Platform.OS === 'ios' ? 'OpenSans-Bold' : 'OpenSans_Bold',
       fontSize: moderateScale(12),
     },
     mediumSemiBold: {
@@ -294,7 +298,11 @@ const Fonts = {
     smallSemiBold: {
       fontFamily:  Platform.OS === 'ios' ? 'OpenSans-SemiBold' : 'OpenSans_SemiBold',
       fontSize: moderateScale(11),
-    }
+    },
+    largeHeaderBold: {
+      fontFamily:  Platform.OS === 'ios' ? 'OpenSans-SemiBold' : 'OpenSans_SemiBold',
+      fontSize: moderateScale(24),
+    },
   }
 };
 

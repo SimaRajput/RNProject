@@ -46,21 +46,22 @@ const styles = {
   },
   signupTextInputContainer: { marginTop: (Constants.BaseStyle.DEVICE_HEIGHT / 100) * 5 },
   textDecorationLineStyle: {
-    ...Constants.Fonts.MavenPro.mediumBold,
-    color: Constants.Colors.BUTTON_COLOR,
+    ...Constants.Fonts.OpenSans.regularBold,
+    color: Constants.Colors.PRIMARY_COLOR,
     textAlign: 'right',
     textDecorationLine: 'underline',
     fontWeight: 'bold'
   },
   extDecorationLineStyle: {
-    ...Constants.Fonts.MavenPro.regularBold,
-    color: Constants.Colors.DARK_GRAY,
+    ...Constants.Fonts.OpenSans.regular,
+    color: Constants.Colors.TEXT_COLOR2,
     textAlign: 'right',
+    marginBottom:20
   },
   signupLineStyle: {
-    color: Constants.Colors.BUTTON_COLOR,
+    color: Constants.Colors.PRIMARY_COLOR,
     textAlign: 'right',
-    ...Constants.Fonts.MavenPro.regularBold,
+    ...Constants.Fonts.OpenSans.regularBold,
   },
   textStyle: {
     ...Constants.Fonts.extraLargeBold,
@@ -73,18 +74,36 @@ const styles = {
     justifyContent:'center'
   },
   label: {
-    ...Constants.Fonts.MavenPro.headerSmallBold,
-    color: Constants.Colors.BUTTON_COLOR,
+    ...Constants.Fonts.OpenSans.largeHeaderBold,
+    color: Constants.Colors.DARK_BLACK,
     textAlign: 'left',
     marginLeft: (Constants.BaseStyle.DEVICE_WIDTH / 100) * 4,
   },
   getUpdate :{
     flexDirection:'row',
-    alignItems:'center'
+    alignItems:'center',
   },
   getUpdateText: {
     color:Constants.Colors.GRAY,
-    ...Constants.Fonts.MavenPro.regularBold,
+    ...Constants.Fonts.OpenSans.smallRegular,
+    left:8
+  },
+  termsText: {
+    color:Constants.Colors.TEXT_COLOR2,
+    ...Constants.Fonts.OpenSans.smallRegular,
+    left:8
+  },
+  loginTexthere: {
+    position:'absolute',
+    ...Constants.Fonts.OpenSans.mediumSemiBold,
+    top:60,
+    left:140
+  },
+  bubbleContainer: {
+    alignItems:'center'
+  },
+  logoIcon: {
+    top:40
   },
 
   /// Login Security Screen Style
@@ -96,6 +115,7 @@ const styles = {
     bottom:570,
     ...Constants.Fonts.OpenSans.mediumSemiBold
   },
+  
   logoContainer: {
     marginTop:(Constants.BaseStyle.DEVICE_HEIGHT / 100) * 5,
   },

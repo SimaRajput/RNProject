@@ -3,7 +3,7 @@ import Dashboard from '../containers/Dashboard';
 import ForgotPassword from '../containers/auth/forgot-password';
 import {Loader} from '../components';
 import Login from '../containers/auth/Login';
-import Signup from '../containers/auth/Signup';
+import Signup1 from '../containers/auth/Signup1';
 import Welcome from '../containers/Welcome';
 import LoginSecurity from '../containers/auth/login-security'
 
@@ -13,7 +13,7 @@ export default {
   ForgotPassword: {screen: ForgotPassword},
   Loader: {screen: Loader},
   Login: {screen: Login},
-  Signup: {screen: Signup},
+  Signup1: {screen: Signup1},
   Welcome: {screen: Welcome},
   LoginSecurity: {screen: LoginSecurity}
 };

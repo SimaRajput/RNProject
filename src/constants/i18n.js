@@ -20,7 +20,7 @@ const i18n = {
     yes: 'Yes',
     textHere: 'Text here....',
     faceDetector:'Face Detector',
-    fingerPrint: 'Fingerprint Scanner'
+    fingerPrint: 'Fingerprint Scanner',
   },
   forgotPass: {
     desciption: 'Enter your email below and we will send you reset link.',
@@ -48,7 +48,8 @@ const i18n = {
     personalDetails: 'Your Personal Details',
     fullnameLabel :'Full Name',
     getupdatefromEmail :'Get updates of investment from email',
-    zipCideLabel: 'Zip Code'
+    zipCideLabel: 'Zip Code',
+    alreadyHaveAccount: 'Already have an account?'
     
   },
   validations: {
@@ -65,6 +66,9 @@ const i18n = {
     invalidPhone: 'Please enter a valid phone number.',
     paswordNotMatched: 'Password does not match.',
   },
+  button: {
+    next: 'Next'
+  }
 };
 
 module.exports = i18n;

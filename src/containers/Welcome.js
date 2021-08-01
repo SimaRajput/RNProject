@@ -80,7 +80,7 @@ class Welcome extends PureComponent {
             textStyle={styles.textStyle}
           />
           <Button
-            onPress={() => navigate('Signup')}
+            onPress={() => navigate('Signup1')}
             style={styles.buttonStyle1}
             title={signup}
           />
