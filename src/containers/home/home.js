@@ -1,23 +1,16 @@
 import React from 'react';
-import { StyleSheet, View, Text, FlatList } from 'react-native';
+import { View, Text, FlatList } from 'react-native';
 import TimerMixin from 'react-timer-mixin';
 import ReactMixin from 'react-mixin';
 import { arrayOf, shape, string, func } from 'prop-types';
 import { connect } from 'react-redux';
 import { AuthStyles } from '../../styles';
-import { Button } from '../../components';
+import { Button,Header } from '../../components';
 import Constants from '../../constants';
 import * as userActions from '../../actions/user-actions-types';
+import styles from './home-styles';
 import { logoutSuccess } from '../../actions/user-actions-types';
 
-const styles = StyleSheet.create({
-  container: {
-    backgroundColor: Constants.Colors.DASHBOARD_BG_COLOR,
-    flex: 1,
-  },
-  rowStyle: { padding: Constants.BaseStyle.PADDING },
-  textStyle: { ...Constants.Fonts.regular },
-});
 
 class Home extends React.Component {
 
@@ -34,6 +27,7 @@ class Home extends React.Component {
 
     return (
       <View style={styles.container}>
+        <Header iconName={Constants.Images.logoHeader} leftIconStyle={styles.leftIconStyle} style={styles.headerStyle} rightIconName={Constants.Images.Back}/>
         <FlatList
           style={styles.container}
           data={movies}

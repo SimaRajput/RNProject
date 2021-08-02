@@ -23,8 +23,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   iconStyle: {
-    height: (Constants.BaseStyle.DEVICE_WIDTH / 100) * 5,
-    width: (Constants.BaseStyle.DEVICE_WIDTH / 100) * 5,
+    height: (Constants.BaseStyle.DEVICE_WIDTH / 100) * 2,
+    width: (Constants.BaseStyle.DEVICE_WIDTH / 100) * 2,
     resizeMode: 'contain'
   },
   textStyle: {
@@ -57,7 +57,8 @@ function Header(props) {
     onPressRight,
     rightIconName,
     showRightTitle,
-    rightTitle
+    rightTitle,
+    leftIconStyle
   } = props;
 
   return (
@@ -68,7 +69,7 @@ function Header(props) {
           onPress={onPressBack}
           style={styles.content}
         >
-          {!hideleftIcon && <Image source={iconName} style={styles.iconStyle} />}
+          {!hideleftIcon && <Image source={iconName} style={[styles.iconStyle,leftIconStyle]} resizeMode='contain' />}
         </TouchableOpacity>
         <Text numberOfLines={1} style={[styles.textStyle, textStyle]}>{text}</Text>
         {!hideRightIcon ? <TouchableOpacity onPress={onPressRight} style={styles.rightSideView}><Image source={rightIconName} style={styles.iconStyle} /></TouchableOpacity> : null}

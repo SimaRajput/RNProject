@@ -11,10 +11,10 @@ const styles = StyleSheet.create({
     borderColor: Constants.Colors.WHITE,
     borderWidth:1,
     position:'absolute',
-    bottom:120,
+    bottom:160,
     alignSelf:'center'
   },
-  container: { flex: 1,backgroundColor: Constants.Colors.PRIMARY_COLOR },
+  container: { flex: 1 },
   content: {
     alignSelf:'center',
     flex:1,
@@ -31,16 +31,12 @@ class GetStarted extends PureComponent {
   render() {
     const { navigation: { navigate } } = this.props;
     const {
-      signup: { signup },
-      login : { login },
-      common: { textHere },
       button: { getStarted }
     } = Constants.i18n;
 
     return (
-        <View style={styles.container} >
+        <ImageBackground  style={styles.container} source={Constants.Images.background} >
         <View style={styles.content}>
-        <Constants.Images.Done/>
           <Button
             onPress={() => navigate('Dashboard')}
             style={styles.buttonStyle}
@@ -48,7 +44,7 @@ class GetStarted extends PureComponent {
             textStyle={styles.textStyle}
           />
         </View>
-       </View>
+       </ImageBackground>
     );
   }
 }

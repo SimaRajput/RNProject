@@ -9,6 +9,12 @@ import CheckBox from '../assets/images/checkbox.svg';
 import CheckBoxActive from '../assets/images/checkbox_active.svg';
 import EmptyScan from '../assets/images/empty_scan.svg';
 import Done from '../assets/images/done.svg';
+import Dashboard from '../assets/images/dashboard.svg';
+import Invest from '../assets/images/invest.svg';
+import Inbox from '../assets/images/inbox.svg';
+import Settings from '../assets/images/settings.svg';
+import LogoHeader from '../assets/images/logo_header.svg';
+
 
 module.exports = {
   Back,
@@ -19,7 +25,12 @@ module.exports = {
   CheckBox,
   EmptyScan,
   CheckBoxActive,
+  Dashboard,
+  Invest,
+  Inbox,
+  Settings,
   Done,
+  LogoHeader,
   back: require('../assets/images/back.png'),
   logo: require('../assets/images/logo.png'),
   internet : require('../assets/images/internet.gif'),
@@ -31,5 +42,7 @@ module.exports = {
   activeprofile : require('../assets/images/activeprofile.png'),
   activemessage : require('../assets/images/activemessage.png'),
   activemore : require('../assets/images/activemore.png'),
-  welcome: require('../assets/images/welcome.jpg')
+  background : require('../assets/images/background.png'),
+  welcome: require('../assets/images/welcome.jpg'),
+  logoHeader: require('../assets/images/logo_header.png')
 };

@@ -9,15 +9,15 @@ import {
 import { createAppContainer } from 'react-navigation'
 import { createBottomTabNavigator } from 'react-navigation-tabs'
 import Constants from '../constants';
-import Home from './home';
+import Home from './home/home';
 import Messages from './messages';
 import More from './more';
 import Profile from './profile';
-// import CustomBottomBar from '../components/common/custome-tab-bar'
 
 const config= {
   tabBarOptions:{
   showLabel: false,
+  style: { height: 65 },
 },
 }
 
@@ -32,16 +32,21 @@ const styles = StyleSheet.create({
     justifyContent:'center',
     alignItems:'center',
     backgroundColor: '#ccf5ff',
-    height:35,
+    height:38,
     paddingHorizontal:15,
     borderRadius:8,
   },
   textStyle :{
     textAlign:'center',
     left:5,
-    ...Constants.Fonts.smallBold
+    ...Constants.Fonts.OpenSans.smallBold
+  },
+  iconStyle: {
+   left:6
   }
 });
+
+const { home, invest, inbox, settings } = Constants.i18n.dashboard
 
 
 const routes ={
@@ -50,18 +55,10 @@ const routes ={
      navigationOptions: () => ({
       tabBarIcon: ({ focused }) => (
         focused ? 
-        <View style={[styles.lableStyle,{left:12}]}>
-          <Image
-          source={Constants.Images.home}
-          style={styles.logo}
-          resizeMode="contain"
-        />
-          <Text style={styles.textStyle}>Dashboard</Text>
-        </View> :  <Image
-          source={Constants.Images.home}
-          style={styles.logo}
-          resizeMode="contain"
-        />
+        <View style={[styles.lableStyle,{left:16}]}>
+        <View style={styles.iconStyle}><Constants.Images.Dashboard/></View>
+          <Text style={[styles.textStyle,{width:'120%'}]}>{home}</Text>
+        </View> : <Constants.Images.Dashboard/>
        ),
      }),
   },
@@ -71,17 +68,9 @@ const routes ={
       tabBarIcon: ({ focused }) => (
         focused ?
         <View style={styles.lableStyle}>
-        <Image
-          source={Constants.Images.profile}
-          style={styles.logo}
-          resizeMode="contain"
-        />
-         <Text style={styles.textStyle}>Profile</Text>
-        </View>:  <Image
-          source={Constants.Images.profile}
-          style={styles.logo}
-          resizeMode="contain"
-        />
+          <Constants.Images.Invest/>
+         <Text style={styles.textStyle}>{invest}</Text>
+        </View>:  <Constants.Images.Invest/>
       ),
     }),
   },
@@ -91,17 +80,9 @@ const routes ={
       tabBarIcon: ({ focused }) => (
         focused ?
         <View style={styles.lableStyle}>
-        <Image
-          source={Constants.Images.message}
-          style={styles.logo}
-          resizeMode="contain"
-        />
-         <Text style={styles.textStyle}>Messages</Text>
-        </View> : <Image
-          source={Constants.Images.message}
-          style={styles.logo}
-          resizeMode="contain"
-        />
+          <Constants.Images.Inbox/>
+         <Text style={styles.textStyle}>{inbox}</Text>
+        </View> :  <Constants.Images.Inbox/>
       ),
     }),
   },
@@ -110,18 +91,10 @@ const routes ={
     navigationOptions: () => ({
       tabBarIcon: ({ focused }) => (
         focused ? 
-        <View style={styles.lableStyle}>
-        <Image
-          source={Constants.Images.more}
-          style={styles.logo}
-          resizeMode="contain"
-        />
-         <Text style={styles.textStyle}>More</Text>
-        </View> : <Image
-          source={Constants.Images.more}
-          style={styles.logo}
-          resizeMode="contain"
-        />
+        <View style={[styles.lableStyle,{right:12}]}>
+         <Constants.Images.Settings/>
+         <Text style={styles.textStyle}>{settings}</Text>
+        </View> :   <Constants.Images.Settings/>
       ),
     }),
   },

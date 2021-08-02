@@ -82,6 +82,12 @@ const i18n = {
     step1:'Step 1/3',
     step2:'Step 2/3',
     step3:'Step 3/3',
+  },
+  dashboard: {
+    home: 'Dashboard',
+    invest: 'Invest',
+    inbox: 'Inbox',
+    settings: 'Settings'
   }
 };
 
