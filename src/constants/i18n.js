@@ -1,3 +1,5 @@
+const { get } = require("lodash");
+
 /* eslint-disable filenames/match-exported */
 const i18n = {
   common: {
@@ -49,7 +51,9 @@ const i18n = {
     fullnameLabel :'Full Name',
     getupdatefromEmail :'Get updates of investment from email',
     zipCideLabel: 'Zip Code',
-    alreadyHaveAccount: 'Already have an account?'
+    alreadyHaveAccount: 'Already have an account?',
+    enableFignerPrintText: 'Do you want us to enable your Fingerprint login?',
+    upiIdText: 'Your Bank UPI ID…'
     
   },
   validations: {
@@ -70,7 +74,14 @@ const i18n = {
     selectTerms:'Please select terms & condition'
   },
   button: {
-    next: 'Next'
+    next: 'Next',
+    verifyNow: 'Varify Now',
+    getStarted: 'Let’s Get Started'
+  },
+  header: {
+    step1:'Step 1/3',
+    step2:'Step 2/3',
+    step3:'Step 3/3',
   }
 };
 

@@ -133,6 +133,7 @@ const styles = {
     ...Constants.Fonts.OpenSans.regular,
     color: Constants.Colors.TEXT_COLOR
   },
+  
   orText: {
     paddingVertical: (Constants.BaseStyle.DEVICE_HEIGHT / 100) * 1,
     ...Constants.Fonts.OpenSans.smallSemiBold,
@@ -143,7 +144,78 @@ const styles = {
     top:5,
     fontSize:12,
     fontWeight:'900'
-  }
+  },
+  
+  //Signup 2
+  enableFingerText: {
+    paddingVertical: (Constants.BaseStyle.DEVICE_HEIGHT / 100) * 3.5,
+    ...Constants.Fonts.OpenSans.extraLargeBold,
+    color: Constants.Colors.TEXT_COLOR,
+    textAlign:'center',
+    marginTop: (Constants.BaseStyle.DEVICE_HEIGHT / 100) * 4,
+  },
+  checkBoxStyle:{
+    flexDirection:'row',
+    justifyContent:'space-between',
+    flex:1,
+    paddingHorizontal: (Constants.BaseStyle.DEVICE_HEIGHT / 100) * 15,
+    marginTop: (Constants.BaseStyle.DEVICE_HEIGHT / 100) * 2,
+  },
+  signup2TextHere: {
+    position:'absolute',
+    bottom:380,
+    ...Constants.Fonts.OpenSans.mediumSemiBold
+  },
+  lableText: {
+    textAlign:'center',
+    marginTop: (Constants.BaseStyle.DEVICE_HEIGHT / 100) * 2,
+    ...Constants.Fonts.OpenSans.extraLarge
+  },
+  signup2buttonStyle: {
+    backgroundColor: Constants.Colors.BUTTON_COLOR,
+    marginTop: (Constants.BaseStyle.DEVICE_HEIGHT / 100) * 7,
+    width: (Constants.BaseStyle.DEVICE_WIDTH / 100) * 90,
+    alignSelf:'center',
+    marginBottom: (Constants.BaseStyle.DEVICE_HEIGHT / 100) * 2,
+  },
+  signup3buttonStyle: {
+    backgroundColor: Constants.Colors.BUTTON_COLOR,
+    marginTop: (Constants.BaseStyle.DEVICE_HEIGHT / 100) * 20,
+    width: (Constants.BaseStyle.DEVICE_WIDTH / 100) * 90,
+    alignSelf:'center',
+    marginBottom: (Constants.BaseStyle.DEVICE_HEIGHT / 100) * 2,
+    bottom:20
+  },
+
+  //Signup 3
+
+  signup3TextHere:{
+    position:'absolute',
+    bottom:300,
+    ...Constants.Fonts.OpenSans.mediumSemiBold
+  },
+  textInput: {
+    borderBottomColor:Constants.Colors.BORDER_COLOR,
+    borderWidth:1,
+    borderColor:'#fff',
+    width:'90%',
+    marginTop: (Constants.BaseStyle.DEVICE_HEIGHT / 100) * 7,
+    textAlign:'center',
+    ...Constants.Fonts.OpenSans.extraLarge
+
+  },
+  errorText:{
+    color: Constants.Colors.ERROR,
+    top:5,
+    fontSize:12,
+    fontWeight:'900',
+    paddingHorizontal: (Constants.BaseStyle.DEVICE_HEIGHT / 100) * 3,
+
+  },
+  
+
+  
+
 };
 
 export default StyleSheet.create(styles);

@@ -21,6 +21,7 @@ const COLORS = {
   PRIMARY_COLOR: '#009080',
   TEXT_COLOR2: '#0A0A0A',
   DARK_BLACK:'#2B2727',
+  BUTTON_TEXT:'#1DA182'
 };
 
 module.exports = COLORS;

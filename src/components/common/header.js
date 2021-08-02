@@ -36,6 +36,11 @@ const styles = StyleSheet.create({
   },
   rightSideView: {
     marginRight: (Constants.BaseStyle.DEVICE_WIDTH / 100) * 4,
+  },
+  rightTitleStyle:{
+    marginRight: (Constants.BaseStyle.DEVICE_WIDTH / 100) * 4,
+    ...Constants.Fonts.OpenSans.regular,
+    color: Constants.Colors.TEXT_COLOR
   }
 });
 
@@ -49,7 +54,10 @@ function Header(props) {
     textStyle,
     text,
     rightIcon,
-    onPressRight
+    onPressRight,
+    rightIconName,
+    showRightTitle,
+    rightTitle
   } = props;
 
   return (
@@ -63,7 +71,8 @@ function Header(props) {
           {!hideleftIcon && <Image source={iconName} style={styles.iconStyle} />}
         </TouchableOpacity>
         <Text numberOfLines={1} style={[styles.textStyle, textStyle]}>{text}</Text>
-        {!hideRightIcon ? <TouchableOpacity onPress={onPressRight} style={styles.rightSideView}><Image source={iconName} style={styles.iconStyle} /></TouchableOpacity> : null}
+        {!hideRightIcon ? <TouchableOpacity onPress={onPressRight} style={styles.rightSideView}><Image source={rightIconName} style={styles.iconStyle} /></TouchableOpacity> : null}
+        {showRightTitle ? <Text style={styles.rightTitleStyle}>{rightTitle}</Text>: null}
       </View>
   );
 };

@@ -6,7 +6,9 @@ import Face from '../assets/images/face.svg';
 import Scan from '../assets/images/scan.svg';
 import LogoLogin from '../assets/images/logo_login.svg';
 import CheckBox from '../assets/images/checkbox.svg';
-import CheckBoxActive from '../assets/images/checkbox_active.svg'
+import CheckBoxActive from '../assets/images/checkbox_active.svg';
+import EmptyScan from '../assets/images/empty_scan.svg';
+import Done from '../assets/images/done.svg';
 
 module.exports = {
   Back,
@@ -15,7 +17,9 @@ module.exports = {
   Scan,
   LogoLogin,
   CheckBox,
+  EmptyScan,
   CheckBoxActive,
+  Done,
   back: require('../assets/images/back.png'),
   logo: require('../assets/images/logo.png'),
   internet : require('../assets/images/internet.gif'),

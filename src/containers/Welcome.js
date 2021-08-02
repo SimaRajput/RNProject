@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
     
   },
   textStyle: {
-    color:Constants.Colors.BUTTON_COLOR
+    color:Constants.Colors.BUTTON_TEXT
   },
   subContainer: {
     alignItems:'center',

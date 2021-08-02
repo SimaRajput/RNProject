@@ -19,7 +19,6 @@ import Constants from '../../constants';
 import { AuthStyles } from '../../styles';
 import { Button, Header, PhoneNumberInput } from '../../components';
 import { TextField } from 'react-native-material-textfield';
-import { signup } from '../../constants/i18n';
 
 class Signup1 extends React.Component {
   static propTypes = {
@@ -68,7 +67,7 @@ class Signup1 extends React.Component {
 
     const { fullName, email, password, zipCode, termsCondition, } = this.state;
     const {
-      navigation: { dispatch, navigate },
+      navigation: { navigate },
     } = this.props;
     const {
       enterEmail,
@@ -132,7 +131,7 @@ class Signup1 extends React.Component {
       //     })
 
       // }
-      navigate('Dashboard')
+      navigate('Signup2')
     }
   };
 
@@ -175,11 +174,12 @@ class Signup1 extends React.Component {
       login: { emailId, passwordText, login },
       button: { next },
       validations: { selectTerms },
+      header: { step1 }
     } = Constants.i18n;
 
     return (
       <View style={AuthStyles.container}>
-        <Header hideRightIcon={true} onPressBack={()=> goBack()} />
+        <Header hideRightIcon={true} onPressBack={()=> goBack()} showRightTitle rightTitle={step1} />
         <Text style={AuthStyles.label}>{personalDetails}</Text>
         <View style={AuthStyles.content}>
           <ScrollView
@@ -327,7 +327,7 @@ class Signup1 extends React.Component {
             <View style={AuthStyles.bottomViewStyle}>
               <TouchableOpacity
                 hitSlop={Constants.BaseStyle.HIT_SLOP}
-                onPress={() => navigate('Login')}
+                onPress={() => navigate('Signup2')}
                 activeOpacity={0.9}>
                 <Text style={AuthStyles.extDecorationLineStyle}>
                   {alreadyHaveAccount}
