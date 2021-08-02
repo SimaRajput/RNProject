@@ -21,7 +21,6 @@ import {AuthStyles} from '../../styles';
 import {Button, TextInput,Header} from '../../components';
 import * as userActions from '../../actions/user-actions-types';
 import { TextField } from 'react-native-material-textfield';
-import { color } from 'react-native-reanimated';
 
 class Login extends React.Component {
   static propTypes = {
@@ -177,7 +176,6 @@ handleScrollView = ref => {
               this.resetScrollView(findNodeHandle(this.usernameRef.current));
             }}
             onSubmitEditing={() => this.passwordRef.current.focus()}
-            labelTextStyle={{color:'red',fontSize:70}}
           />
            <TextField
             activeLineWidth={1}

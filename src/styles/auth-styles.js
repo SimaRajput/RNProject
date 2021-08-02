@@ -8,6 +8,13 @@ const styles = {
     backgroundColor: Constants.Colors.BUTTON_COLOR,
     marginTop: (Constants.BaseStyle.DEVICE_HEIGHT / 100) * 7,
     width: (Constants.BaseStyle.DEVICE_WIDTH / 100) * 90,
+    alignSelf:'center'
+  },
+  forgotPassbuttonStyle: {
+    backgroundColor: Constants.Colors.BUTTON_COLOR,
+    marginTop: (Constants.BaseStyle.DEVICE_HEIGHT / 100) * 15,
+    width: (Constants.BaseStyle.DEVICE_WIDTH / 100) * 90,
+    alignSelf:'center'
   },
   logOutbuttonStyle: {
     backgroundColor: Constants.Colors.BUTTON_COLOR,
@@ -23,12 +30,14 @@ const styles = {
   content: {
     alignItems: 'center',
     flex: 1,
+    paddingHorizontal: (Constants.BaseStyle.DEVICE_HEIGHT / 100) * 1.5,
   },
   description: {
-    ...Constants.Fonts.regular,
+    ...Constants.Fonts.OpenSans.regular,
     color: Constants.Colors.GRAY,
-    marginTop: (Constants.BaseStyle.DEVICE_HEIGHT / 100) * 1,
+    marginTop: (Constants.BaseStyle.DEVICE_HEIGHT / 100) * 2,
     width: (Constants.BaseStyle.DEVICE_WIDTH / 100) * 70,
+    marginLeft: (Constants.BaseStyle.DEVICE_WIDTH / 100) * 4,
   },
   emailTextStyle: { color: Constants.Colors.BLACK },
   logoStyle: {
@@ -71,7 +80,7 @@ const styles = {
   bottomViewStyle :{
     flexDirection:'row',
     marginTop: (Constants.BaseStyle.DEVICE_HEIGHT / 100) * 4,
-    justifyContent:'center'
+    justifyContent:'center',
   },
   label: {
     ...Constants.Fonts.OpenSans.largeHeaderBold,
@@ -128,6 +137,12 @@ const styles = {
     paddingVertical: (Constants.BaseStyle.DEVICE_HEIGHT / 100) * 1,
     ...Constants.Fonts.OpenSans.smallSemiBold,
     color: Constants.Colors.GRAY
+  },
+  acceptTerms:{
+    color: Constants.Colors.ERROR,
+    top:5,
+    fontSize:12,
+    fontWeight:'900'
   }
 };
 

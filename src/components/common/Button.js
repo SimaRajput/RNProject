@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
     borderRadius: 24,
     flexDirection: 'row',
     justifyContent: 'center',
-    width: (Constants.BaseStyle.DEVICE_WIDTH * 100) / 88,
+    width: (Constants.BaseStyle.DEVICE_WIDTH * 100) / 90,
     ...ifIphoneX(
       { height: (Constants.BaseStyle.DEVICE_HEIGHT * 6.5) / 100 },
       { height: (Constants.BaseStyle.DEVICE_HEIGHT * 7.5) / 100 }

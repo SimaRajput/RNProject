@@ -16,7 +16,8 @@ import {ToastActionsCreators} from 'react-native-redux-toast';
 import Regex from '../../utilities/Regex';
 import Constants from '../../constants';
 import {AuthStyles} from '../../styles';
-import {Button, TextInput} from '../../components';
+import {Button, Header} from '../../components';
+import { TextField } from 'react-native-material-textfield';
 
 class ForgotPassword extends React.Component {
   static propTypes = {
@@ -26,32 +27,65 @@ class ForgotPassword extends React.Component {
     }).isRequired,
   };
 
-  state = {email: ''};
+  state = {
+   email: '',
+   emailError:'',
+   errorLabel:''
+};
 
   emailRef = React.createRef();
 
   scrollViewRef = React.createRef();
-
+  
   onSubmit = () => {
     Keyboard.dismiss();
-    const {email} = this.state;
+    let emailError = '', error = false
+    const { email } = this.state;
     const {
-      navigation: {dispatch},
+      navigation: {dispatch, navigate},login,deviceToken,
     } = this.props;
-    const {enterEmail, enterValidEmail} = Constants.i18n.validations;
+    const {
+      enterEmail,
+      enterValidEmail,
+    } = Constants.i18n.validations;
 
     if (_.isEmpty(email.trim())) {
-      dispatch(ToastActionsCreators.displayInfo(enterEmail));
-
-      return;
+      emailError = enterEmail;
+      error = true
+    } else if (!Regex.validateEmail(email)) {
+      emailError = enterValidEmail
+      error = true
     }
 
-    if (!Regex.validateEmail(email.trim())) {
-      dispatch(ToastActionsCreators.displayInfo(enterValidEmail));
-    }
+    if (error) {
+      this.setState({
+        emailError,
+        errorLabel: ''
+      })
+    } else {
+      const requestObject = {
+        ID:1,
+        UserName: email,
+      };
+  
+    //   login({
+    //     callback: () => console.log('welcome'),
+    //     data: requestObject,
+        
+    //   }), err => {
+    //     this.setState({
+    //       errorLabel: err
+    //     })
+      
+    // }
+    navigate('Dashboard')
+  }
+}
 
-    // call restfull api
-  };
+  changeHandler = (state, value) => {
+    this.setState({ [state]: value, [state + 'Error']: '' });
+  }
+
 
   handleScrollView = ref => {
     const context = this;
@@ -76,46 +110,60 @@ class ForgotPassword extends React.Component {
   };
 
   render() {
-    const {email} = this.state;
+    const { email,errorLabel, emailError } = this.state;
     const {
       common: {emailAddress, forgotPass},
       forgotPass: {desciption, sendLink},
+      login: { emailId },
     } = Constants.i18n;
+    const {
+      navigation: { goBack },
+    } = this.props;
 
     return (
       <View style={AuthStyles.container}>
+        <Header hideRightIcon={true} onPressBack={()=> goBack()} />
+        <Text style={AuthStyles.label}>{forgotPass}</Text>
+        <Text style={AuthStyles.description}>{desciption}</Text>
         <View style={AuthStyles.content}>
+        
           <ScrollView
             ref={this.scrollViewRef}
             showsHorizontalScrollIndicator={false}
             showsVerticalScrollIndicator={false}
             keyboardDismissMode={Platform.OS === 'ios' ? 'on-drag' : 'none'}
             keyboardShouldPersistTaps="always">
-            <Image
-              source={Constants.Images.logo}
-              style={AuthStyles.logoStyle}
-              resizeMode='contain'
-            />
-            <Text style={AuthStyles.textStyle}>{forgotPass}</Text>
-            <Text style={AuthStyles.description}>{desciption}</Text>
-            <TextInput
-              ref={this.emailRef}
-              value={email}
-              placeholder={emailAddress}
-              returnKeyType="done"
-              keyboardType="email-address"
-              onChangeText={name => this.setState({email: name})}
-              onFocus={() => {
-                this.handleScrollView(findNodeHandle(this.emailRef.current));
-              }}
-              onBlur={() => {
-                this.resetScrollView(findNodeHandle(this.emailRef.current));
-              }}
-              onSubmitEditing={this.onSubmit}
-            />
+             {errorLabel !== '' && <Text >{`*${errorLabel}`} </Text>}
+            <TextField
+            activeLineWidth={1}
+            ref={this.emailRef}
+            label={emailId}
+            labelFontSize={12}
+            value={email}
+            onChangeText={text => this.changeHandler('email', text)}
+            tintColor={Constants.Colors.GRAY}
+            errorColor={Constants.Colors.ERROR}
+            error={emailError}
+            keyboardType={'email-address'}
+            returnKeyType={'next'}
+            placeholderTextColor={Constants.Colors.GRAY}
+            labelTextStyle={Constants.Colors.BLACK}
+            titleTextStyle={Constants.Colors.BLACK}
+            labelPadding={15}
+            containerStyle={{ marginTop:60 }}
+            textContentType={'emailAddress'}
+            autoCapitalize={'none'}
+            onFocus={() => {
+              this.handleScrollView(findNodeHandle(this.emailRef.current));
+            }}
+            onBlur={() => {
+              this.resetScrollView(findNodeHandle(this.emailRef.current));
+            }}
+            onSubmitEditing={this.onSubmit}
+          />
             <Button
               onPress={this.onSubmit}
-              style={AuthStyles.buttonStyle}
+              style={AuthStyles.forgotPassbuttonStyle}
               title={sendLink}
             />
           </ScrollView>

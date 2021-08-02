@@ -23,8 +23,8 @@ const i18n = {
     fingerPrint: 'Fingerprint Scanner',
   },
   forgotPass: {
-    desciption: 'Enter your email below and we will send you reset link.',
-    sendLink: 'SEND RESET LINK',
+    desciption: 'Enter your registered Email ID, we’ll send you a link to reset your password.',
+    sendLink: 'Send',
   },
   login: {
     createAccount: 'CREATE NEW ACCOUNT?',
@@ -65,6 +65,9 @@ const i18n = {
       'Invalid password, password should contain one alphabet and number and must be 6-16 character long.',
     invalidPhone: 'Please enter a valid phone number.',
     paswordNotMatched: 'Password does not match.',
+    enterFullName: 'Please enter full name.',
+    enterZipCode: 'Please enter zip code.',
+    selectTerms:'Please select terms & condition'
   },
   button: {
     next: 'Next'

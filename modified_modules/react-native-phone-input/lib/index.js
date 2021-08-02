@@ -183,7 +183,8 @@ export default class PhoneInput extends Component {
           <Text style={[styles.countryCodeText, { color: textColor }]}>
             {formattedNumber}
           </Text>
-          <AntDesign style={styles.downArrow} name="caretdown" size={14} />
+          {/* <AntDesign style={styles.downArrow} name="caretdown" size={14} /> */}
+          <Image source={require('../../../src/assets/images/down-arrow.png')} style={styles.arrow} resizeMode='contain'/>
           {/* <Image
             source={Flags.get(iso2)}
             style={[styles.flag, this.props.flagStyle]}

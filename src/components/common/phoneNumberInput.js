@@ -19,8 +19,8 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     // height: (Constants.BaseStyle.DEVICE_HEIGHT / 100) * 7,
     marginVertical: (Constants.BaseStyle.DEVICE_HEIGHT / 100) * 1.1, 
-    width: '15%',
-    marginTop: isIOS ? (Constants.BaseStyle.DEVICE_HEIGHT / 100) * 30 : (Constants.BaseStyle.DEVICE_HEIGHT / 100) * 4.5,
+    width: '20%',
+    marginTop: isIOS ? (Constants.BaseStyle.DEVICE_HEIGHT / 100) * 30 : (Constants.BaseStyle.DEVICE_HEIGHT / 100) * 4.8,
     alignItems:'center',
   },
   numberInput: {
@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
   phoneInput: {
     width: "100%",
     alignSelf: 'center',
-    borderBottomColor: Constants.Colors.BLACK,
+    borderBottomColor: Constants.Colors.BLACK,  
 
   },
   warningText: {
@@ -61,7 +61,7 @@ const PhoneNumberInput = (props) => {
           containerStyle={styles.phoneInput}
         />
       </View>
-      {phoneNumber?.length > 0 && !isValidNumber && <Text style={styles.warningText}>Not valid number</Text>}
+      {/* {phoneNumber?.length > 0 && !isValidNumber && <Text style={styles.warningText}>Not valid number</Text>} */}
 
     </View>
   )

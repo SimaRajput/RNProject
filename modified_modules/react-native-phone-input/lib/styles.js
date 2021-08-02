@@ -17,8 +17,9 @@ export default StyleSheet.create({
     width: (SCREEN_WIDTH / 100) * 60,
   },
   countryCodeText: {
-    ...Constants.Fonts.largeBold,
-    color: Constants.Colors.WHITE
+    ...Constants.Fonts.OpenSans.regular,
+    // color: Constants.Colors.TEXT_COLOR2,
+    bottom:12
   },
   downArrow: {
     color: Constants.Colors.PRIMARY_COLOR,
@@ -82,4 +83,10 @@ export default StyleSheet.create({
     fontSize: 14,
     color: 'black',
   },
+  arrow:{
+    height:15,
+    width:15,
+    left:2,
+    bottom:12
+  }
 });

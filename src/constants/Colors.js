@@ -20,7 +20,7 @@ const COLORS = {
   TEXT_COLOR:'#1A1A1A',
   PRIMARY_COLOR: '#009080',
   TEXT_COLOR2: '#0A0A0A',
-  DARK_BLACK:'#2B2727'
+  DARK_BLACK:'#2B2727',
 };
 
 module.exports = COLORS;
