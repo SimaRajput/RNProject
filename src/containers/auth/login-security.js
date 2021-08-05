@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { StyleSheet, View,Text,TouchableOpacity, ScrollView } from 'react-native';
+import { StyleSheet, View,Text,TouchableOpacity, ScrollView, Image } from 'react-native';
 import { func, shape } from 'prop-types';
 import Constants from '../../constants';
 import { Header } from '../../components';
@@ -25,8 +25,7 @@ class LoginSecurity extends PureComponent {
       <ScrollView style={AuthStyles.container} showsVerticalScrollIndicator={false}>
           <Header hideRightIcon={true} onPressBack={()=> goBack()}/>
           <View style={AuthStyles.subContainer}>
-      <Constants.Images.Bubble/>
-      <Text style={AuthStyles.textHere}>{textHere}</Text>
+      <Image source={Constants.Images.bubble} style={AuthStyles.bubbleIcon} resizeMode='contain'></Image>
       <TouchableOpacity style={AuthStyles.logoContainer} onPress={()=> navigate('Login')}>
       <Constants.Images.Face/>
       </TouchableOpacity>

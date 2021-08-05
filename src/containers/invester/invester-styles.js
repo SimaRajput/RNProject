@@ -5,8 +5,6 @@ const styles = StyleSheet.create({
     container: {
       backgroundColor: Constants.Colors.WHITE,
       flex: 1,
-      marginTop: (Constants.BaseStyle.DEVICE_HEIGHT / 100) * 1.5,
-
     },
     rowStyle:  { 
       padding: Constants.BaseStyle.PADDING },
@@ -28,17 +26,8 @@ const styles = StyleSheet.create({
       alignItems:'center',
       bottom:80
     },
-    titleView: {
-    marginTop:20,
-    paddingHorizontal: (Constants.BaseStyle.DEVICE_HEIGHT / 100) * 2,
-    },
-    title: {
-      ...Constants.Fonts.OpenSans.extraLargeBold,
-    },
-    viewAll: {
-      ...Constants.Fonts.OpenSans.smallBold,
-      color: Constants.Colors.PRIMARY_COLOR
-    }
+    
+    
   
   });
 

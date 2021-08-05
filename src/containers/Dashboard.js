@@ -12,9 +12,9 @@ import Constants from '../constants';
 import Home from './home/home';
 import Messages from './messages';
 import More from './more';
-import Profile from './profile';
+import Invester from './invester/invester';
 
-const config= {
+const config = {
   tabBarOptions:{
   showLabel: false,
   style: { height: 65 },
@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
     flexDirection:'row',
     justifyContent:'center',
     alignItems:'center',
-    backgroundColor: '#ccf5ff',
+    backgroundColor: Constants.Colors.SECONDARY_COLOR,
     height:38,
     paddingHorizontal:15,
     borderRadius:8,
@@ -62,8 +62,8 @@ const routes ={
        ),
      }),
   },
-  Profile: {
-    screen: Profile,
+  Invester: {
+    screen: Invester,
     navigationOptions: () => ({
       tabBarIcon: ({ focused }) => (
         focused ?

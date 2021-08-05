@@ -161,11 +161,6 @@ const styles = {
     paddingHorizontal: (Constants.BaseStyle.DEVICE_HEIGHT / 100) * 15,
     marginTop: (Constants.BaseStyle.DEVICE_HEIGHT / 100) * 2,
   },
-  signup2TextHere: {
-    position:'absolute',
-    bottom:380,
-    ...Constants.Fonts.OpenSans.mediumSemiBold
-  },
   lableText: {
     textAlign:'center',
     marginTop: (Constants.BaseStyle.DEVICE_HEIGHT / 100) * 2,
@@ -188,12 +183,6 @@ const styles = {
   },
 
   //Signup 3
-
-  signup3TextHere:{
-    position:'absolute',
-    bottom:300,
-    ...Constants.Fonts.OpenSans.mediumSemiBold
-  },
   textInput: {
     borderBottomColor:Constants.Colors.BORDER_COLOR,
     borderWidth:1,
@@ -212,6 +201,11 @@ const styles = {
     paddingHorizontal: (Constants.BaseStyle.DEVICE_HEIGHT / 100) * 3,
 
   },
+
+  bubbleIcon: {
+    height:200,
+    width:300
+  }
   
 
   

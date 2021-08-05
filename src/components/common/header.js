@@ -15,6 +15,7 @@ const styles = StyleSheet.create({
     shadowColor: 'gray',
     color: Constants.Colors.TRANSPARENT,
     height: 50,
+    justifyContent:'space-between',
   },
   content: {
     flexDirection: 'row',
@@ -23,16 +24,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   iconStyle: {
-    height: (Constants.BaseStyle.DEVICE_WIDTH / 100) * 2,
-    width: (Constants.BaseStyle.DEVICE_WIDTH / 100) * 2,
-    resizeMode: 'contain'
+    height: (Constants.BaseStyle.DEVICE_WIDTH / 100) * 5,
+    width: (Constants.BaseStyle.DEVICE_WIDTH / 100) * 5,
   },
   textStyle: {
-    textTransform: 'capitalize',
-    color: Constants.Colors.STEELBLUE,
     justifyContent: 'center',
-    textAlign: 'center',
-    flex: 1,
+    ...Constants.Fonts.OpenSans.regular,
   },
   rightSideView: {
     marginRight: (Constants.BaseStyle.DEVICE_WIDTH / 100) * 4,
@@ -41,6 +38,10 @@ const styles = StyleSheet.create({
     marginRight: (Constants.BaseStyle.DEVICE_WIDTH / 100) * 4,
     ...Constants.Fonts.OpenSans.regular,
     color: Constants.Colors.TEXT_COLOR
+  },
+  centerIconStyle:{
+    height:210,
+    width:210
   }
 });
 
@@ -58,7 +59,9 @@ function Header(props) {
     rightIconName,
     showRightTitle,
     rightTitle,
-    leftIconStyle
+    leftIconStyle,
+    rightIconStyle,
+    showTitle
   } = props;
 
   return (
@@ -69,10 +72,10 @@ function Header(props) {
           onPress={onPressBack}
           style={styles.content}
         >
-          {!hideleftIcon && <Image source={iconName} style={[styles.iconStyle,leftIconStyle]} resizeMode='contain' />}
+          {!hideleftIcon && <Image source={iconName} style={[styles.iconStyle,leftIconStyle]}  />}
         </TouchableOpacity>
-        <Text numberOfLines={1} style={[styles.textStyle, textStyle]}>{text}</Text>
-        {!hideRightIcon ? <TouchableOpacity onPress={onPressRight} style={styles.rightSideView}><Image source={rightIconName} style={styles.iconStyle} /></TouchableOpacity> : null}
+        {showTitle ? <Text numberOfLines={1} style={[styles.textStyle, textStyle]}>{text}</Text> : <Image source={Constants.Images.headerbubble} style={styles.centerIconStyle} resizeMode='contain'/>}
+         {!hideRightIcon ? <TouchableOpacity onPress={onPressRight} style={styles.rightSideView}><Image source={rightIconName} style={[styles.iconStyle,rightIconStyle]} /></TouchableOpacity> : null}
         {showRightTitle ? <Text style={styles.rightTitleStyle}>{rightTitle}</Text>: null}
       </View>
   );

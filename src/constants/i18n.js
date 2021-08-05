@@ -1,4 +1,3 @@
-const { get } = require("lodash");
 
 /* eslint-disable filenames/match-exported */
 const i18n = {
@@ -87,7 +86,11 @@ const i18n = {
     home: 'Dashboard',
     invest: 'Invest',
     inbox: 'Inbox',
-    settings: 'Settings'
+    settings: 'Settings',
+    myProperty: 'Mine Eiendommer',
+    viewAll: 'View All',
+    investProperty: 'Properties to Invest',
+    invest: 'Invest · '
   }
 };
 

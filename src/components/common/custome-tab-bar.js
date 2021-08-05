@@ -41,7 +41,7 @@ const CustomBottomBar = (props) =>{
                 case 'Home':
                      animate(0, route.key)
                       break
-                      case 'Profile':
+                      case 'Invester':
                        animate(width/4, route.key)
                        break
                        case 'Messages':

@@ -14,6 +14,10 @@ import Invest from '../assets/images/invest.svg';
 import Inbox from '../assets/images/inbox.svg';
 import Settings from '../assets/images/settings.svg';
 import LogoHeader from '../assets/images/logo_header.svg';
+import ArrowDown from '../assets/images/arrow_down.svg';
+import ArrowUp from '../assets/images/arrow_up.svg';
+import Share from '../assets/images/share.svg';
+import Search from '../assets/images/search.svg';
 
 
 module.exports = {
@@ -31,6 +35,10 @@ module.exports = {
   Settings,
   Done,
   LogoHeader,
+  ArrowDown,
+  ArrowUp,
+  Share,
+  Search,
   back: require('../assets/images/back.png'),
   logo: require('../assets/images/logo.png'),
   internet : require('../assets/images/internet.gif'),
@@ -43,6 +51,9 @@ module.exports = {
   activemessage : require('../assets/images/activemessage.png'),
   activemore : require('../assets/images/activemore.png'),
   background : require('../assets/images/background.png'),
-  welcome: require('../assets/images/welcome.jpg'),
-  logoHeader: require('../assets/images/logo_header.png')
+  welcome: require('../assets/images/splash.png'),
+  logoHeader: require('../assets/images/logo_header.png'),
+  drawr: require('../assets/images/drawr.png'),
+  bubble: require('../assets/images/bubble.png'),
+  headerbubble: require('../assets/images/header-bubble.png')
 };

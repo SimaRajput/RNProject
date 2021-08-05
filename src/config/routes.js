@@ -8,7 +8,8 @@ import Signup2 from '../containers/auth/Signup2';
 import Signup3 from '../containers/auth/Signup3';
 import Welcome from '../containers/Welcome';
 import LoginSecurity from '../containers/auth/login-security';
-import GetStarted from '../containers/auth/getStarted'
+import GetStarted from '../containers/auth/getStarted';
+import { Invester, InvesterBuy } from '../containers/invester'
 
 export default {
   ChangePassword: {screen: ChangePassword},
@@ -21,5 +22,7 @@ export default {
   Signup3: {screen: Signup3},
   Welcome: {screen: Welcome},
   LoginSecurity: {screen: LoginSecurity},
-  GetStarted: {screen: GetStarted}
+  GetStarted: {screen: GetStarted},
+  Invester: {screen: Invester},
+  InvesterBuy: {screen: InvesterBuy}
 };

@@ -47,8 +47,7 @@ class Signup3 extends PureComponent {
             <ScrollView style={AuthStyles.container} showsVerticalScrollIndicator={false}>
                 <Header hideRightIcon={true} onPressBack={() => goBack()} showRightTitle rightTitle={step3} />
                 <View style={AuthStyles.subContainer}>
-                    <Constants.Images.Bubble />
-                    <Text style={AuthStyles.signup3TextHere}>{textHere}</Text>
+                    <Image source={Constants.Images.bubble} style={AuthStyles.bubbleIcon} resizeMode='contain'></Image>
                     <View style={AuthStyles.logoContainer}>
                         <Constants.Images.LogoLogin />
                     </View>

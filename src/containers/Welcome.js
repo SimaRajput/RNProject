@@ -43,10 +43,9 @@ const styles = StyleSheet.create({
     alignItems:'center',
     top:40
   },
-  textHere: {
-    position:'absolute',
-    bottom:80,
-    ...Constants.Fonts.OpenSans.mediumSemiBold
+  bubbleIcon: {
+    height:200,
+    width:300
   }
 });
 
@@ -63,14 +62,12 @@ class Welcome extends PureComponent {
     const {
       signup: { signup },
       login : { login },
-      common: { textHere }
     } = Constants.i18n;
 
     return (
         <ImageBackground source={Constants.Images.welcome} style={styles.imagebackground} >
         <View style={styles.subContainer}>
-      <Constants.Images.Bubble/>
-      <Text style={styles.textHere}>{textHere}</Text>
+        <Image source={Constants.Images.bubble} style={styles.bubbleIcon} resizeMode='contain'></Image>
       </View>
         <View style={styles.content}>
           <Button

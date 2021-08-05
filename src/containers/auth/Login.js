@@ -145,8 +145,7 @@ handleScrollView = ref => {
             keyboardDismissMode={Platform.OS === 'ios' ? 'on-drag' : 'none'}
             keyboardShouldPersistTaps="always">
               <View style={AuthStyles.bubbleContainer}>
-              <Constants.Images.Bubble/>
-              <Text style={AuthStyles.loginTexthere}>{textHere}</Text>
+              <Image source={Constants.Images.bubble} style={AuthStyles.bubbleIcon} resizeMode='contain'></Image>
               <Constants.Images.LogoLogin style={AuthStyles.logoIcon}/>
              {errorLabel !== '' && <Text >{`*${errorLabel}`} </Text>}
              </View>
