@@ -70,12 +70,14 @@ const i18n = {
     paswordNotMatched: 'Password does not match.',
     enterFullName: 'Please enter full name.',
     enterZipCode: 'Please enter zip code.',
-    selectTerms:'Please select terms & condition'
+    selectTerms:'Please select terms & condition',
+    enterQuantity: 'Please enter quantity'
   },
   button: {
     next: 'Next',
     verifyNow: 'Varify Now',
-    getStarted: 'Let’s Get Started'
+    getStarted: 'Let’s Get Started',
+    buy: 'Buy'
   },
   header: {
     step1:'Step 1/3',
@@ -90,7 +92,13 @@ const i18n = {
     myProperty: 'Mine Eiendommer',
     viewAll: 'View All',
     investProperty: 'Properties to Invest',
-    invest: 'Invest · '
+    invest: 'Invest · ',
+    hi: 'Hei',
+    padinDevident:'Utbetait Utbytte / ar',
+    totalValue: 'Total Verdi',
+    mineelendommer:'Mine Eiendommer · ',
+    builder: 'Builder',
+    loaction: 'Location'
   }
 };
 

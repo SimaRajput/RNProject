@@ -18,6 +18,11 @@ import ArrowDown from '../assets/images/arrow_down.svg';
 import ArrowUp from '../assets/images/arrow_up.svg';
 import Share from '../assets/images/share.svg';
 import Search from '../assets/images/search.svg';
+import Card from '../assets/images/card.svg';
+import CardActive from '../assets/images/card_active.svg';
+import Home from '../assets/images/home.svg';
+import Money from '../assets/images/money.svg';
+import Stock from '../assets/images/stock.svg'
 
 
 module.exports = {
@@ -39,6 +44,11 @@ module.exports = {
   ArrowUp,
   Share,
   Search,
+  Card,
+  CardActive,
+  Home,
+  Money,
+  Stock,
   back: require('../assets/images/back.png'),
   logo: require('../assets/images/logo.png'),
   internet : require('../assets/images/internet.gif'),
@@ -55,5 +65,7 @@ module.exports = {
   logoHeader: require('../assets/images/logo_header.png'),
   drawr: require('../assets/images/drawr.png'),
   bubble: require('../assets/images/bubble.png'),
-  headerbubble: require('../assets/images/header-bubble.png')
+  headerbubble: require('../assets/images/header-bubble.png'),
+  next: require('../assets/images/next.png'),
+  prevoius: require('../assets/images/prevoius.png')
 };

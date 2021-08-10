@@ -251,6 +251,14 @@ const Fonts = {
     },
   },
   OpenSans: {
+    extraSmallRegular: {
+      fontFamily:  Platform.OS === 'ios' ? 'OpenSans-Regular' : 'OpenSans_Regular',
+      fontSize: moderateScale(11),
+    },
+    extraSmallBold: {
+      fontFamily:  Platform.OS === 'ios' ? 'OpenSans-Bold' : 'OpenSans_Bold',
+      fontSize: moderateScale(11),
+    },
     extraLarge: {
       fontFamily:  Platform.OS === 'ios' ? 'OpenSans-Regular' : 'OpenSans_Regular',
       fontSize: moderateScale(18),
@@ -303,7 +311,34 @@ const Fonts = {
       fontFamily:  Platform.OS === 'ios' ? 'OpenSans-SemiBold' : 'OpenSans_SemiBold',
       fontSize: moderateScale(24),
     },
+    semiSmallBold: {
+      fontFamily:  Platform.OS === 'ios' ? 'OpenSans-SemiBold' : 'OpenSans_SemiBold',
+      fontSize: moderateScale(12),
+    },
+    mediumSemiBold: {
+      fontFamily:  Platform.OS === 'ios' ? 'OpenSans-SemiBold' : 'OpenSans_SemiBold',
+      fontSize: moderateScale(14),
+    },
+  },
+  Helvetica: {
+    regular: {
+      fontFamily:  Platform.OS === 'ios' ? 'HelveticaLt' : 'HelveticaLt',
+      fontSize: moderateScale(12),
+    },
+    regular: {
+      fontFamily:  Platform.OS === 'ios' ? 'HelveticaLt' : 'HelveticaLt',
+      fontSize: moderateScale(14),
+    },
+    large: {
+      fontFamily:  Platform.OS === 'ios' ? 'HelveticaLt' : 'HelveticaLt',
+      fontSize: moderateScale(24),
+    },
+    extraLargeBold: {
+      fontFamily:  Platform.OS === 'ios' ? 'HelveticaLt' : 'HelveticaLt',
+      fontSize: moderateScale(18),
+    },
   }
+
 };
 
 module.exports = Fonts;

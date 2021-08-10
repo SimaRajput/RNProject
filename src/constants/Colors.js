@@ -22,7 +22,8 @@ const COLORS = {
   TEXT_COLOR2: '#0A0A0A',
   DARK_BLACK:'#2B2727',
   BUTTON_TEXT:'#1DA182',
-  SECONDARY_COLOR:'#d3ece7'
+  SECONDARY_COLOR:'#d3ece7',
+  LIGHT_GREEN: '#D2ECE7'
 };
 
 module.exports = COLORS;

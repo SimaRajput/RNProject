@@ -15,6 +15,8 @@ import Rows from './common/rows';
 import NoRecordFound from './common/no-record';
 import SearchTextInput from './common/search-text-input';
 import Tabs from './common/tabs';
+import CardCarousel from './common/cardCarousel';
+import BarChart from './common/barChart'
 
 export {
   AnimatedModal,
@@ -33,5 +35,7 @@ export {
   Rows,
   NoRecordFound,
   SearchTextInput,
-  Tabs
+  Tabs,
+  CardCarousel,
+  BarChart
 };
