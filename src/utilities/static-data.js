@@ -31,4 +31,38 @@ const propertyDetailData = [
       },
 ]
 
+const documentsData = [
+  
+  {
+    id:0,
+    title: 'Januray 2021'
+  },
+  {
+    id:1,
+    title: 'February 2021'
+  },
+  {
+    id:2,
+    title: 'March 2021'
+  },
+  {
+    id:3,
+    title: 'April 2021'
+  },
+  {
+    id:4,
+    title: 'May 2021'
+  },
+  {
+    id:5,
+    title: 'June 2021'
+  },
+  {
+    id:6,
+    title: 'July 2021'
+  },
+
+]
+
 exports.propertyDetailData = propertyDetailData;
+exports.documentsData = documentsData

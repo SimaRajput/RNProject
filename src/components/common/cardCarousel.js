@@ -52,7 +52,6 @@ class  CardCarousel extends React.Component{
  
 
   pagination = (index) => {
-      console.log('index',index)
     return (
       <Pagination
         dotsLength={itemData.length}

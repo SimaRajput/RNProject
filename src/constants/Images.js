@@ -22,7 +22,12 @@ import Card from '../assets/images/card.svg';
 import CardActive from '../assets/images/card_active.svg';
 import Home from '../assets/images/home.svg';
 import Money from '../assets/images/money.svg';
-import Stock from '../assets/images/stock.svg'
+import Stock from '../assets/images/stock.svg';
+import Pdf from '../assets/images/pdf.svg';
+import Detail2 from '../assets/images/detail2.svg';
+import Money1 from '../assets/images/money1.svg';
+import Calculator from '../assets/images/calculator.svg';
+
 
 
 module.exports = {
@@ -49,6 +54,10 @@ module.exports = {
   Home,
   Money,
   Stock,
+  Pdf,
+  Detail2,
+  Money1,
+  Calculator,
   back: require('../assets/images/back.png'),
   logo: require('../assets/images/logo.png'),
   internet : require('../assets/images/internet.gif'),

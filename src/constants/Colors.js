@@ -23,7 +23,8 @@ const COLORS = {
   DARK_BLACK:'#2B2727',
   BUTTON_TEXT:'#1DA182',
   SECONDARY_COLOR:'#d3ece7',
-  LIGHT_GREEN: '#D2ECE7'
+  LIGHT_GREEN: '#D2ECE7',
+  BORDER_COLOR_2: '#58DCC2'
 };
 
 module.exports = COLORS;
