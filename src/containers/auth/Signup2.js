@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { StyleSheet, View, Text, TouchableOpacity, ScrollView, Keyboard } from 'react-native';
+import { StyleSheet, View, Text, TouchableOpacity, ScrollView, Keyboard,Image } from 'react-native';
 import { func, shape } from 'prop-types';
 import TimerMixin from 'react-timer-mixin';
 import ReactMixin from 'react-mixin';
@@ -54,9 +54,9 @@ class Signup2 extends PureComponent {
 
     return (
       <ScrollView style={AuthStyles.container} showsVerticalScrollIndicator={false}>
-        <Header hideRightIcon={true} onPressBack={() => goBack()} showRightTitle rightTitle={step2} />
+        <Header hideRightIcon={true} onPressBack={() => goBack()} showRightTitle rightTitle={step2} showTitle={true}  />
         <View style={AuthStyles.subContainer}>
-          <Image source={Constants.Images.bubble}></Image>
+          <Image source={Constants.Images.bubble} style={AuthStyles.bubbleIcon} resizeMode='contain'></Image>
           <View style={AuthStyles.logoContainer}>
             <Constants.Images.EmptyScan />
           </View>

@@ -179,7 +179,7 @@ class Signup1 extends React.Component {
 
     return (
       <View style={AuthStyles.container}>
-        <Header hideRightIcon={true} onPressBack={()=> goBack()} showRightTitle rightTitle={step1} />
+        <Header hideRightIcon={true} onPressBack={()=> goBack()} showRightTitle rightTitle={step1}  showTitle={true} />
         <Text style={AuthStyles.label}>{personalDetails}</Text>
         <View style={AuthStyles.content}>
           <ScrollView

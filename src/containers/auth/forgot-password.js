@@ -122,7 +122,7 @@ class ForgotPassword extends React.Component {
 
     return (
       <View style={AuthStyles.container}>
-        <Header hideRightIcon={true} onPressBack={()=> goBack()} />
+        <Header hideRightIcon={true} onPressBack={()=> goBack()}  showTitle={true}  />
         <Text style={AuthStyles.label}>{forgotPass}</Text>
         <Text style={AuthStyles.description}>{desciption}</Text>
         <View style={AuthStyles.content}>

@@ -328,7 +328,7 @@ onNext = (index) => {
     
       }
 
-      renderOverSick = () => {
+      renderAksje = () => {
           return(
             <View style={styles.overSickContainer}>
             <View style={styles.rowItems}>
@@ -432,21 +432,21 @@ onNext = (index) => {
                     <Text style={styles.textLabel}>{'En flott 3 roms lelighet sentrait i Oslo.'}</Text>
                     <Text style={styles.textLabel}>{'Hey takhoyde samt nyrennovert kjokken og bad'}</Text>
                     {this.renderSmallCardView()}
-                    {/* {this.renderBuilder()} */}
+                    {this.renderBuilder()}
                     {this.renderLocation()}
-                    <View style={styles.aksjeStyle}>
-                    <Text style={[styles.labelText,{top:30}]}>{'Aksje & Utbytte'}</Text>
-                    <CardCarousel
-                    itemData={StaticData.propertyDetailData}
-                    activeSlide={this.state.secondActiveSlides}
-                    SnapItemData={this.SnapItemData2}
-                    allowPagination={true}
-                    renderItem={this.renderComponents}
-                    ListEmptyComponent={this.ListEmptyComponent}
-                  />
-                  </View>
-                  <Text style={styles.labelText}>{'Aksje & Utbytte'}</Text>
-                    {this.renderOverSick()}
+                      {/* <View style={styles.aksjeStyle}>
+                      <Text style={[styles.labelText,{top:30}]}>{'Aksje & Utbytte'}</Text>
+                      <CardCarousel
+                      itemData={StaticData.propertyDetailData}
+                      activeSlide={this.state.secondActiveSlides}
+                      SnapItemData={this.SnapItemData2}
+                      allowPagination={true}
+                      renderItem={this.renderComponents}
+                      ListEmptyComponent={this.ListEmptyComponent}
+                    />
+                    </View> */}
+                  <Text style={[styles.labelText,{marginTop:15}]}>{'Aksje & Utbytte'}</Text>
+                    {this.renderAksje()}
                     <Text style={[styles.labelText,{marginTop:15}]}>{'Documents'}</Text>
                     <View style={styles.documentsContainer}>
                         <View style={styles.docViewStyle}>

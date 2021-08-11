@@ -1,13 +1,14 @@
 import React from 'react';
 import { View, Text, Image, findNodeHandle, ScrollView, Keyboard, TouchableOpacity, } from 'react-native';
 import Constants from '../../constants';
-import { Header, Tabs, Button } from '../../components';
+import { Button } from '../../components';
 import styles from './invester-buy-styles';
 import { goBack } from '../../actions/nav-action-types';
 import * as userActions from '../../actions/user-actions-types';
 import { connect } from 'react-redux';
 import { TextField } from 'react-native-material-textfield';
 import _ from 'lodash';
+import StaticData from '../../utilities/static-data'
 
 
 class InvesterBuy extends React.Component {
@@ -51,7 +52,7 @@ class InvesterBuy extends React.Component {
         const { quantity } = this.state;
         const {
             navigation: { dispatch, navigate }, login, deviceToken,
-        } = this.props;
+        } = this.props.props;
         const {
             enterQuantity,
         } = Constants.i18n.validations;
@@ -71,11 +72,7 @@ class InvesterBuy extends React.Component {
                 quantity: quantity
             };
 
-            login({
-                callback: () => console.log('welcome'),
-                data: requestObject,
-
-            }), err => {
+             err => {
                 this.setState({
                     errorLabel: err
                 })
@@ -91,8 +88,9 @@ class InvesterBuy extends React.Component {
 
     render() {
         const { invest } = Constants.i18n.dashboard;
-        const { data } = this.props.navigation.state.params;
-        const { navigation: { goBack, navigate} } = this.props;
+        // const { data } = this.props.navigation.state.params;
+        const { navigation: { navigate} } = this.props.props;
+        console.log('pro>>>',this.props)
         const { quantity, errorLabel, quantutyError } = this.state;
 
         const {
@@ -100,15 +98,14 @@ class InvesterBuy extends React.Component {
         } = Constants.i18n;
         return (
             <View style={styles.container}>
-                <Header showTitle={true}
-                    style={styles.headerStyle}
-                    onPressBack={() => goBack()}
-                    text={`${invest + data.title}`}
-                    textStyle={styles.textStyle} />
+                {StaticData.propertyDetailData.map(data=>
+                <View>
                 <View style={styles.subContainer}>
                     <Text style={styles.text}>{data.title}</Text>
                     <View>
-                        <TouchableOpacity style={styles.cardView} onPress={()=> navigate('MineEllendommer',{data:data})}>
+                        <TouchableOpacity style={styles.cardView} 
+                        onPress={()=> navigate('MineEllendommer',{data:data})}
+                        >
                             <View style={styles.rowContainer}>
 
                                 <Image source={require('../../assets/images/property.jpeg')} style={styles.icon} />
@@ -177,6 +174,9 @@ class InvesterBuy extends React.Component {
                     />
                     <Text style={styles.bottomText}>{'Avtale detailjer'}</Text>
                 </View>
+                </View>
+                )}
+                
             </View>
         )
     }
@@ -185,8 +185,9 @@ class InvesterBuy extends React.Component {
 export default connect(
     null,
     {
-        login: userActions.login,
+    login: userActions.login,
     }
+    
 )(InvesterBuy);
 
 

@@ -72,7 +72,7 @@ function Header(props) {
           onPress={onPressBack}
           style={styles.content}
         >
-          {!hideleftIcon && <Image source={iconName} style={[styles.iconStyle,leftIconStyle]}  />}
+          {!hideleftIcon ? <Image source={iconName} style={[styles.iconStyle,leftIconStyle]}/>: null }
         </TouchableOpacity>
         {showTitle ? <Text numberOfLines={1} style={[styles.textStyle, textStyle]}>{text}</Text> : <Image source={Constants.Images.headerbubble} style={styles.centerIconStyle} resizeMode='contain'/>}
          {!hideRightIcon ? <TouchableOpacity onPress={onPressRight} style={styles.rightSideView}><Image source={rightIconName} style={[styles.iconStyle,rightIconStyle]} /></TouchableOpacity> : null}

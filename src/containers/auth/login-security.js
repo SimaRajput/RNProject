@@ -23,7 +23,7 @@ class LoginSecurity extends PureComponent {
 
     return (
       <ScrollView style={AuthStyles.container} showsVerticalScrollIndicator={false}>
-          <Header hideRightIcon={true} onPressBack={()=> goBack()}/>
+          <Header hideRightIcon={true} onPressBack={()=> goBack()} showTitle={true} />
           <View style={AuthStyles.subContainer}>
       <Image source={Constants.Images.bubble} style={AuthStyles.bubbleIcon} resizeMode='contain'></Image>
       <TouchableOpacity style={AuthStyles.logoContainer} onPress={()=> navigate('Login')}>

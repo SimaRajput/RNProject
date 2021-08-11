@@ -86,7 +86,7 @@ const i18n = {
   },
   dashboard: {
     home: 'Dashboard',
-    invest: 'Invest',
+    invest:'Invest',
     inbox: 'Inbox',
     settings: 'Settings',
     myProperty: 'Mine Eiendommer',

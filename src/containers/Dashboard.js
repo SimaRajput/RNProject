@@ -16,8 +16,12 @@ import Invester from './invester/invester';
 
 const config = {
   tabBarOptions:{
-  showLabel: false,
-  style: { height: 65 },
+    activeBackgroundColor: '#fff',
+    activeTintColor: '#000',
+    inactiveBackgroundColor: '#fff',
+    inactiveTintColor: 'gray',
+    showIcon: true,
+    style: Constants.BaseStyle.TAB_GROUP_STYLE,
 },
 }
 
@@ -27,23 +31,6 @@ const styles = StyleSheet.create({
     width: 25,
     tintColor:'#33d6ff'
   },
-  lableStyle :{
-    flexDirection:'row',
-    justifyContent:'center',
-    alignItems:'center',
-    backgroundColor: Constants.Colors.SECONDARY_COLOR,
-    height:38,
-    paddingHorizontal:15,
-    borderRadius:8,
-  },
-  textStyle :{
-    textAlign:'center',
-    left:5,
-    ...Constants.Fonts.OpenSans.smallBold
-  },
-  iconStyle: {
-   left:6
-  }
 });
 
 const { home, invest, inbox, settings } = Constants.i18n.dashboard
@@ -54,23 +41,18 @@ const routes ={
     screen: Home,
      navigationOptions: () => ({
       tabBarIcon: ({ focused }) => (
-        focused ? 
-        <View style={[styles.lableStyle,{left:16}]}>
-        <View style={styles.iconStyle}><Constants.Images.Dashboard/></View>
-          <Text style={[styles.textStyle,{width:'120%'}]}>{home}</Text>
-        </View> : <Constants.Images.Dashboard/>
+        focused ?
+        <Constants.Images.Dashboard/> : <Constants.Images.Dashboard/>
        ),
      }),
   },
   Invester: {
     screen: Invester,
     navigationOptions: () => ({
+      tabBarLabel: 'Invest',
       tabBarIcon: ({ focused }) => (
         focused ?
-        <View style={styles.lableStyle}>
-          <Constants.Images.Invest/>
-         <Text style={styles.textStyle}>{invest}</Text>
-        </View>:  <Constants.Images.Invest/>
+          <Constants.Images.Invest/> :  <Constants.Images.Invest/>
       ),
     }),
   },
@@ -79,10 +61,7 @@ const routes ={
     navigationOptions: () => ({
       tabBarIcon: ({ focused }) => (
         focused ?
-        <View style={styles.lableStyle}>
-          <Constants.Images.Inbox/>
-         <Text style={styles.textStyle}>{inbox}</Text>
-        </View> :  <Constants.Images.Inbox/>
+          <Constants.Images.Inbox/> : <Constants.Images.Inbox/>
       ),
     }),
   },
@@ -90,11 +69,8 @@ const routes ={
     screen: More,
     navigationOptions: () => ({
       tabBarIcon: ({ focused }) => (
-        focused ? 
-        <View style={[styles.lableStyle,{right:12}]}>
-         <Constants.Images.Settings/>
-         <Text style={styles.textStyle}>{settings}</Text>
-        </View> :   <Constants.Images.Settings/>
+        focused ?
+         <Constants.Images.Settings/> : <Constants.Images.Settings/>
       ),
     }),
   },

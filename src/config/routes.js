@@ -9,7 +9,7 @@ import Signup3 from '../containers/auth/Signup3';
 import Welcome from '../containers/Welcome';
 import LoginSecurity from '../containers/auth/login-security';
 import GetStarted from '../containers/auth/getStarted';
-import { Invester, InvesterBuy, MineEllendommer } from '../containers/invester'
+import { Invester, InvesterBuy, MineEllendommer, InvesterTab } from '../containers/invester'
 
 export default {
   ChangePassword: {screen: ChangePassword},
@@ -25,5 +25,6 @@ export default {
   GetStarted: {screen: GetStarted},
   Invester: {screen: Invester},
   InvesterBuy: {screen: InvesterBuy},
-  MineEllendommer: { screen: MineEllendommer }
+  MineEllendommer: { screen: MineEllendommer },
+  InvesterTab: { screen: InvesterTab}
 };

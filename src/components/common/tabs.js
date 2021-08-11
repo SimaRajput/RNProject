@@ -23,20 +23,20 @@ const styles = StyleSheet.create({
   overlay: {
     position: "absolute",
     height: "100%",
-    backgroundColor: Constants.Colors.PRIMARY_COLOR,
+    backgroundColor: Constants.Colors.WHITE,
     borderRadius: 4,
   },
   tabStyle: {
-    marginHorizontal: 15,
-    paddingHorizontal: 45,
-    justifyContent: "center",
+    marginHorizontal: 45,
+    // paddingHorizontal: 45,
+    justifyContent: "space-between",
     alignItems: "center",
-    backgroundColor: Constants.Colors.PRIMARY_COLOR,
+    backgroundColor: Constants.Colors.WHITE,
     borderRadius: 4,
   },
   tabStyle1: {
-    marginHorizontal: 15,
-    paddingHorizontal: 45,
+    marginHorizontal: 45,
+    // paddingHorizontal: 45,
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: Constants.Colors.DASHBOARD,
@@ -44,11 +44,35 @@ const styles = StyleSheet.create({
 
   },
   textStyle: {
-    // ...Constants.Fonts.Roboto.regularSmallBold,
-    textTransform: "uppercase",
+    ...Constants.Fonts.OpenSans.regularBold,
     textAlign: 'center',
     alignSelf: 'center',
-    paddingVertical: 10
+    paddingVertical: 10,
+    color: Constants.Colors.PRIMARY_COLOR
+  },
+  tabSelectStyle: {
+    borderRadius:20,
+    height:37,width:121,
+    justifyContent:'center',
+    borderColor:Constants.Colors.BORDER_COLOR,
+    borderWidth:1,
+    backgroundColor: '#F6FAFF'
+  },
+  activeCircle: {
+    height:30,
+    left:3,
+    width:30,
+    borderRadius:30/2,
+    backgroundColor:Constants.Colors.PRIMARY_COLOR,
+    alignSelf:'flex-start',
+  },
+  activeCircle1: {
+    height:30,
+    right:3,
+    width:30,
+    borderRadius:30/2,
+    backgroundColor:Constants.Colors.PRIMARY_COLOR,
+    alignSelf:'flex-end'
   },
 });
 
@@ -101,8 +125,8 @@ export default class Tabs extends Component {
     mainTabView: {},
     tabViewStyle: {},
     activeIndex: () => { },
-    activeColor: Constants.Colors.WHITE,
-    inActiveColor: Constants.Colors.BLACK,
+    activeColor: Constants.Colors.PRIMARY_COLOR,
+    inActiveColor: Constants.Colors.BORDER_COLOR_2,
     active: 0,
   };
 
@@ -116,7 +140,6 @@ export default class Tabs extends Component {
       translateX,
       translateXTabOne,
       translateXTabTwo,
-      translateXTabThree
     } = this.state;
     Animated.spring(translateX, {
       toValue: type,
@@ -135,11 +158,6 @@ export default class Tabs extends Component {
           duration: 100,
           useNativeDriver: true
         }).start(),
-        Animated.spring(translateXTabThree, {
-          toValue: 2 * width,
-          duration: 100,
-          useNativeDriver: true
-        }).start()
       ]);
     } else if (active === 1) {
       Animated.parallel([
@@ -153,11 +171,6 @@ export default class Tabs extends Component {
           duration: 100,
           useNativeDriver: true
         }).start(),
-        Animated.spring(translateXTabThree, {
-          toValue: 2 * width,
-          duration: 100,
-          useNativeDriver: true
-        }).start()
       ]);
     } else {
       Animated.parallel([
@@ -171,11 +184,6 @@ export default class Tabs extends Component {
           duration: 100,
           useNativeDriver: true
         }).start(),
-        Animated.spring(translateXTabThree, {
-          toValue: 0,
-          duration: 100,
-          useNativeDriver: true
-        }).start()
       ]);
     }
   };
@@ -216,15 +224,6 @@ export default class Tabs extends Component {
     return (
       <View style={styles.container}>
         <View style={[styles.tabContainer, style]}>
-          {/* <Animated.View style={[styles.overlay, overlayStyle, {
-            left: first ? xTabOne : 0,
-            width: widthTemp,
-            transform: [
-              {
-                translateX
-              }
-            ]
-          }]} /> */}
           <ScrollView
             ref={this.scrollViewRef}
             horizontal
@@ -252,6 +251,9 @@ export default class Tabs extends Component {
                 {tab1Heading}
               </Text>
             </TouchableOpacity>
+            <View style={styles.tabSelectStyle}>
+              {!active ? <View style={styles.activeCircle}></View>:<View style={styles.activeCircle1}></View>}
+            </View>
             <TouchableOpacity
               style={[active == 1 ? styles.tabStyle : styles.tabStyle1, tabViewStyle]}
               onLayout={event =>
@@ -315,3 +317,6 @@ export default class Tabs extends Component {
     );
   }
 }
+
+
+

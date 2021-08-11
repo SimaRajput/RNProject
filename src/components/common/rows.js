@@ -65,7 +65,8 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between'
   },
   rows: {
-    flexDirection:'row'
+    flexDirection:'row',
+    justifyContent:'space-between'
   },
   keyValueContainer: {
     paddingHorizontal: 10, 
@@ -74,11 +75,12 @@ const styles = StyleSheet.create({
   iconView: {
     alignSelf: 'flex-end',
      top: 6, 
-     right: 1 
+     right: 2 
   },
   itemContainer: {
     flexDirection: 'row', 
-    paddingVertical: 5
+    paddingVertical: 5,
+    justifyContent:'space-between'
   }
 });
 

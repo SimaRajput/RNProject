@@ -32,7 +32,7 @@ class Invester extends React.Component {
                 icon={item.icon}
                 value={item.value}
                 rightIcon={item.status == 0 ? <Constants.Images.ArrowDown /> : <Constants.Images.ArrowUp />}
-                onPress={()=>navigate('InvesterBuy',{ data:item })}
+                onPress={()=>navigate('InvesterTab',{ data:item })}
             />
         )
     }

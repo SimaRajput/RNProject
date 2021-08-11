@@ -136,7 +136,7 @@ handleScrollView = ref => {
 
     return (
       <View style={AuthStyles.container}>
-        <Header hideRightIcon={true} onPressBack={()=> goBack()}/>
+        <Header hideRightIcon={true} onPressBack={()=> goBack()} showTitle={true} />
         <View style={AuthStyles.content}>
           <ScrollView
             ref={this.scrollViewRef}
