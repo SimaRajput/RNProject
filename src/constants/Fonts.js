@@ -331,12 +331,17 @@ const Fonts = {
     },
     large: {
       fontFamily:  Platform.OS === 'ios' ? 'HelveticaLt' : 'HelveticaLt',
-      fontSize: moderateScale(24),
+      fontSize: moderateScale(12),
     },
     extraLargeBold: {
       fontFamily:  Platform.OS === 'ios' ? 'HelveticaLt' : 'HelveticaLt',
       fontSize: moderateScale(18),
     },
+    large: {
+      fontFamily:  Platform.OS === 'ios' ? 'HelveticaLt' : 'HelveticaLt',
+      fontSize: moderateScale(24),
+    },
+    
   }
 
 };

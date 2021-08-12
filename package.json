@@ -10,12 +10,14 @@
     "lint": "eslint ."
   },
   "dependencies": {
+    "@chartiful/react-native-chart-builder": "^0.1.8",
+    "@chartiful/react-native-vertical-bar-graph": "^0.1.2",
     "@react-native-community/async-storage": "^1.8.1",
     "@react-native-community/geolocation": "^2.0.2",
     "@react-native-community/netinfo": "^1.4.0",
     "@react-native-community/toolbar-android": "0.1.0-rc.2",
     "axios": "^0.18.0",
-    "d3": "^7.0.0",
+    "d3": "^5.15.0",
     "idx": "^2.5.0",
     "jetifier": "^2.0.0",
     "lodash": "^4.17.11",

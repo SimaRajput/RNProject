@@ -43,11 +43,10 @@ const styles = StyleSheet.create({
       color: Constants.Colors.PRIMARY_COLOR
     },
     subConatiner: {
-      marginTop:(Constants.BaseStyle.DEVICE_HEIGHT / 100) * 1.5,
       paddingHorizontal:5
     },
     titleText: {
-      ...Constants.Fonts.OpenSans.largeBold
+      ...Constants.Fonts.OpenSans.large
     },
     titleText1: {
       ...Constants.Fonts.OpenSans.smallBold,
@@ -103,7 +102,41 @@ const styles = StyleSheet.create({
     textInfo: {
       color: Constants.Colors.PRIMARY_COLOR,
       ...Constants.Fonts.Helvetica.regular
-    }
+    },
+    textInfo1: {
+      color: Constants.Colors.PRIMARY_COLOR,
+      ...Constants.Fonts.Helvetica.regular,
+      right:20
+    },
+    crouselContainer: {
+      backgroundColor:Constants.Colors.WHITE,
+      width:'95%',
+      alignSelf:'center',
+      borderRadius:8,
+      borderWidth:.5,
+      borderColor: Constants.Colors.BORDER_COLOR_2,
+      marginTop :(Constants.BaseStyle.DEVICE_HEIGHT / 100) * 4,
+      ...Constants.BaseStyle.SHADOW_STYLE,
+      paddingVertical:20,
+      height:230
+  },
+  paginationMainView: {
+    position: 'absolute',
+    alignItems: 'center',
+    alignSelf: 'center',
+    justifyContent: 'center',
+    top:272,
+    elevation:5,
+    zIndex:5
+    
+  },
+  iconMainView: {
+    paddingHorizontal:15
+  },
+  iconView: {
+    height:30,
+    width:30
+  },
   
   
   });

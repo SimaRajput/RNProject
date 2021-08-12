@@ -1,19 +1,43 @@
 import React from 'react';
-import { View, Text, FlatList, TouchableOpacity, Dimensions } from 'react-native';
+import { View, Text, FlatList, TouchableOpacity, Dimensions,Image } from 'react-native';
 import TimerMixin from 'react-timer-mixin';
 import ReactMixin from 'react-mixin';
 import { arrayOf, shape, string, func } from 'prop-types';
 import { connect } from 'react-redux';
-import { Header, Rows, NoRecordFound, CardCarousel, } from '../../components';
+import { Header, Rows, NoRecordFound,BarChart} from '../../components';
 import Constants from '../../constants';
 import * as userActions from '../../actions/user-actions-types';
 import styles from './home-styles';
 import StaticData from '../../utilities/static-data';
-import { LineChart, XAxis, Grid, BarChart } from 'react-native-svg-charts'
+// import { LineChart, XAxis, Grid, BarChart } from 'react-native-svg-charts'
+import Carousel, { Pagination } from 'react-native-snap-carousel' // 3.6.0
+import VerticalBarGraph from '@chartiful/react-native-vertical-bar-graph'
+import {
+  LineChart,
+  PieChart,
+  ProgressChart,
+  ContributionGraph,
+  StackedBarChart
+} from "react-native-chart-kit";
 
 
-
-const data = [50, 10, 40, 95, 85, 91, 75, 45, 37]
+const dotIcons = [
+  {
+    index:0,
+    icon:require('../../assets/images/coin.png'),
+    iconActive:require('../../assets/images/coin_active.png'),
+  },
+  {
+    index:1,
+    icon:require('../../assets/images/money.png'),
+    iconActive:require('../../assets/images/money-active.png'),
+  },
+  {
+    index:2,
+    icon:require('../../assets/images/stock.png'),
+    iconActive:require('../../assets/images/stock_active.png'),
+  }
+]
 
 class Home extends React.Component {
 
@@ -27,6 +51,16 @@ class Home extends React.Component {
 
 
   renderComponent = ({ item }) => {
+    const data = [
+      { label: 'Jan', value: 500, bottomLabel:'1ar',status:0 },
+      { label: 'Feb', value: 312,  bottomLabel:'6m' ,status:1 },
+      { label: 'Mar', value: 424,  bottomLabel:'12m' ,status:1 },
+      { label: 'Apr', value: 745,  bottomLabel:'3ar',status:0  },
+      { label: 'May', value: 89 ,  bottomLabel:'1ar',status:1 },
+      { label: 'Jun', value: 434 ,  bottomLabel:'5ar',status:1 },
+      { label: 'July', value: 634 ,  status:0 },
+     
+    ]
     const fill = Constants.Colors.PRIMARY_COLOR
     const data1 = [5, 8, 6, 7]
       .map((value) => ({ value }))
@@ -90,21 +124,12 @@ class Home extends React.Component {
 
       case 1:
         return (
-          <View style={{ height: 200, justifyContent: 'center', paddingHorizontal: 20 }}>
-            <View style={{ flexDirection: 'row', justifyContent: 'space-between', top: 20 }}>
+          <View style={{ height: 200, justifyContent: 'center',}}>
+            <View style={{ flexDirection: 'row', justifyContent: 'space-between' ,alignItems:'center'}}>
               <Text style={styles.textInfo}>{'2.6 %'}</Text>
-              <Text style={styles.textInfo}>{'84,375'}</Text>
+              <Text style={styles.textInfo1}>{'84,375'}</Text>
             </View>
-            <BarChart
-              style={{ height: 200, bottom: 30 }}
-              // numberOfTicks={0}
-              spacingInner={0.3}
-              // spacingOuter={0.2}
-              data={barData}
-              yAccessor={({ item }) => item.value}
-              contentInset={{ top: 20, bottom: 50 }}
-              {...this.props}
-            />
+           <BarChart data={data} round={100} unit="€"/>
 
           </View>
 
@@ -112,7 +137,37 @@ class Home extends React.Component {
         break;
       case 2:
         return (
-          <Text>Third</Text>
+          <LineChart
+          data={{
+            labels: ["January", "February", "March", "April", "May", "June"],
+            datasets: [
+              { data: [0, 0, 0, 80, 99, 43]}
+            ]
+          }}
+          width={Dimensions.get("window").width}
+          height={220}
+          yAxisLabel="$"
+          yAxisSuffix="k"
+          yAxisInterval={1} // optional, defaults to 1
+          chartConfig={{
+            decimalPlaces: 2, // optional, defaults to 2dp
+            color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
+            labelColor: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
+            style: {
+              borderRadius: 16
+            },
+            propsForDots: {
+              r: "6",
+              strokeWidth: "2",
+              stroke: "#ffa726"
+            }
+          }}
+          bezier
+          style={{
+            marginVertical: 8,
+            borderRadius: 16
+          }}
+        />
         )
         break;
     }
@@ -156,14 +211,37 @@ class Home extends React.Component {
           style={styles.headerStyle}
           rightIconName={Constants.Images.drawr}
           rightIconStyle={styles.rightIconStyle} />
-        <CardCarousel
-          itemData={StaticData.propertyDetailData}
-          activeSlide={this.state.activeSlide}
-          SnapItemData={this.SnapItemData}
-          allowPagination={true}
-          renderItem={this.renderComponent}
-          ListEmptyComponent={this.ListEmptyComponent}
+           <View style={styles.crouselContainer}>
+          <Carousel
+            ref={ ref => this.carouselRef = ref }
+            data={ StaticData.propertyDetailData }
+            renderItem={this.renderComponent}
+            onSnapToItem={this.SnapItemData}
+            sliderWidth={Constants.BaseStyle.DEVICE_WIDTH}
+            itemWidth={Constants.BaseStyle.DEVICE_WIDTH - 35}
+            slideStyle={{ width : Constants.BaseStyle.DEVICE_WIDTH - 35 }}
+          />
+          </View>
+        <View style={styles.paginationMainView}>
+        <Pagination
+         dotsLength={3}
+          renderDots={ activeIndex => (
+            dotIcons.map((screen, i) => ( console.log('scsc',activeIndex),
+              <TouchableOpacity
+                style={styles.iconMainView}
+                key={ i }
+               onPress={() => {
+                  this.carouselRef._snapToItem(this.carouselRef._getPositionIndex(i));
+                }}
+              >
+                <Image source={screen.iconActive} style={styles.iconView}/>
+               
+              </TouchableOpacity>
+            ))
+          )}
+          activeDotIndex={ this.state.activeSlide }
         />
+        </View>
         <View style={styles.titleView}>
           <Text style={styles.title} >{myProperty}</Text>
           <TouchableOpacity>
