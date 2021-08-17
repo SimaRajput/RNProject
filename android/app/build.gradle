@@ -151,6 +151,14 @@ android {
             keyAlias 'androiddebugkey'
             keyPassword 'android'
         }
+          release {
+        if (project.hasProperty('MYAPP_RELEASE_STORE_FILE')) {
+            storeFile file(MYAPP_RELEASE_STORE_FILE)
+            storePassword MYAPP_RELEASE_STORE_PASSWORD
+            keyAlias MYAPP_RELEASE_KEY_ALIAS
+            keyPassword MYAPP_RELEASE_KEY_PASSWORD
+        }
+    }
     }
     buildTypes {
         debug {
@@ -178,6 +186,14 @@ android {
             }
 
         }
+        variant.outputs.all {
+            def date = new Date();
+            def formattedDate = date.format('MMMdd')
+            outputFileName = "Boligfondet-${variant.versionCode}vc-${formattedDate}.apk"
+        }
+    }
+    dexOptions {
+        javaMaxHeapSize "4g"
     }
 }
 
