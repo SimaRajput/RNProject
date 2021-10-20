@@ -24,12 +24,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   iconStyle: {
-    height: (Constants.BaseStyle.DEVICE_WIDTH / 100) * 5,
+    height: (Constants.BaseStyle.DEVICE_WIDTH / 100) * 4,
     width: (Constants.BaseStyle.DEVICE_WIDTH / 100) * 5,
   },
   textStyle: {
     justifyContent: 'center',
     ...Constants.Fonts.OpenSans.regular,
+    width:'100%'
   },
   rightSideView: {
     marginRight: (Constants.BaseStyle.DEVICE_WIDTH / 100) * 4,
@@ -41,7 +42,8 @@ const styles = StyleSheet.create({
   },
   centerIconStyle:{
     height:210,
-    width:210
+    width:210,
+    top:15,
   }
 });
 
@@ -74,7 +76,7 @@ function Header(props) {
         >
           {!hideleftIcon ? <Image source={iconName} style={[styles.iconStyle,leftIconStyle]}/>: null }
         </TouchableOpacity>
-        {showTitle ? <Text numberOfLines={1} style={[styles.textStyle, textStyle]}>{text}</Text> : <Image source={Constants.Images.headerbubble} style={styles.centerIconStyle} resizeMode='contain'/>}
+        {showTitle ? <Text style={[styles.textStyle, textStyle]}>{text}</Text> : <Image source={Constants.Images.headerbubble} style={styles.centerIconStyle} resizeMode='contain'/>}
          {!hideRightIcon ? <TouchableOpacity onPress={onPressRight} style={styles.rightSideView}><Image source={rightIconName} style={[styles.iconStyle,rightIconStyle]} /></TouchableOpacity> : null}
         {showRightTitle ? <Text style={styles.rightTitleStyle}>{rightTitle}</Text>: null}
       </View>

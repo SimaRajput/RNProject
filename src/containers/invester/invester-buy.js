@@ -98,7 +98,7 @@ class InvesterBuy extends React.Component {
         } = Constants.i18n;
         return (
             <View style={styles.container}>
-                {StaticData.propertyDetailData.map(data=>
+                {StaticData.propertyDetailData.slice(0,1).map(data=>
                 <View>
                 <View style={styles.subContainer}>
                     <Text style={styles.text}>{data.title}</Text>

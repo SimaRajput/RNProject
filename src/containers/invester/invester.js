@@ -4,13 +4,11 @@ import TimerMixin from 'react-timer-mixin';
 import ReactMixin from 'react-mixin';
 import { arrayOf, shape, string, func } from 'prop-types';
 import { connect } from 'react-redux';
-import { Header, Rows, NoRecordFound , SearchTextInput ,Tabs } from '../../components';
+import { Header, Rows, NoRecordFound , SearchTextInput } from '../../components';
 import Constants from '../../constants';
 import * as userActions from '../../actions/user-actions-types';
 import styles from '../home/home-styles';
 import StaticData from '../../utilities/static-data';
-
-
 
 
 class Invester extends React.Component {
@@ -50,7 +48,7 @@ class Invester extends React.Component {
 
     render() {
 
-        const { investProperty } = Constants.i18n.dashboard;
+        const { investProperty, noRecord, placeHolder } = Constants.i18n.dashboard;
         const { data,search } = this.state;
 
         return (
@@ -64,7 +62,7 @@ class Invester extends React.Component {
                      <View style={styles.titleView}>
                      <Text style={styles.title} >{investProperty}</Text>
                      </View>
-                <SearchTextInput placeholder="Search by name..." value={search} onChangeText={this.onSearch} />
+                <SearchTextInput placeholder={placeHolder} value={search} onChangeText={this.onSearch} />
 
                 <FlatList
                     style={styles.container}
@@ -72,18 +70,14 @@ class Invester extends React.Component {
                     renderItem={this.renderItem}
                     keyExtractor={(item => item.id)}
                     showsVerticalScrollIndicator={false}
-                    ListEmptyComponent={<NoRecordFound message={`No Record Found`} />}
+                    ListEmptyComponent={<NoRecordFound message={noRecord} />}
                 />
             </View>
         );
     }
 }
 
-
-
-
 ReactMixin(Invester.prototype, TimerMixin);
-
 
 export default Invester;
 

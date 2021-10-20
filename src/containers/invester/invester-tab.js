@@ -1,5 +1,5 @@
 import React from 'react';
-import { View,Text } from 'react-native';
+import { View,Text, ScrollView } from 'react-native';
 import { Tabs,Header } from '../../components';
 import InvesterBuy from './invester-buy';
 import Constants from '../../constants';
@@ -33,6 +33,7 @@ export default class InvesterTab extends React.Component{
                     text={`${invest + data.title }`}
                     textStyle={styles.textStyle} 
                     /> 
+                    <ScrollView>
             <Tabs
               style={{alignItems:'center'}}
               tab1Heading={'Buy'}
@@ -40,6 +41,7 @@ export default class InvesterTab extends React.Component{
               tab1Content={< InvesterBuy props={this.props}/>}
               tab2Content={<Sell />}
             />
+            </ScrollView>
           </View>
         );
       }

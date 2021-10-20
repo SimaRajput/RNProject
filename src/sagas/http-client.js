@@ -61,11 +61,11 @@ function* HttpClient(payload) {
             yield put(ToastActionsCreators.displayInfo(error.message));
           }
         } else {
-          yield put(
-            ToastActionsCreators.displayInfo(
-              'Something went wrong. Please again later.'
-            )
-          );
+          // yield put(
+          //   ToastActionsCreators.displayInfo(
+          //     'Something went wrong. Please again later.'
+          //   )
+          // );
         }
 
         return {

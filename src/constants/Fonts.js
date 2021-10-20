@@ -251,6 +251,10 @@ const Fonts = {
     },
   },
   OpenSans: {
+    maxSmallRegular: {
+      fontFamily:  Platform.OS === 'ios' ? 'OpenSans-Regular' : 'OpenSans_Regular',
+      fontSize: moderateScale(8),
+    },
     extraSmallRegular: {
       fontFamily:  Platform.OS === 'ios' ? 'OpenSans-Regular' : 'OpenSans_Regular',
       fontSize: moderateScale(11),
@@ -332,6 +336,10 @@ const Fonts = {
     large: {
       fontFamily:  Platform.OS === 'ios' ? 'HelveticaLt' : 'HelveticaLt',
       fontSize: moderateScale(12),
+    },
+    largeRegular: {
+      fontFamily:  Platform.OS === 'ios' ? 'HelveticaLt' : 'HelveticaLt',
+      fontSize: moderateScale(16),
     },
     extraLargeBold: {
       fontFamily:  Platform.OS === 'ios' ? 'HelveticaLt' : 'HelveticaLt',

@@ -3,7 +3,7 @@ import Idx from 'idx';
 import Connection from '../config/Connection';
 
 const AxiosInstance = axios.create({
-  baseURL: `${Connection.getBaseUrl()}/api/`,
+  baseURL: `${Connection.getBaseUrl()}`,
   headers: {
     Accept: 'application/json',
     'Content-Type': 'application/json',

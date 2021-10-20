@@ -98,7 +98,11 @@ const i18n = {
     totalValue: 'Total Verdi',
     mineelendommer:'Mine Eiendommer · ',
     builder: 'Builder',
-    loaction: 'Location'
+    loaction: 'Location',
+    message: 'Invest now!',
+    desciption: 'Start investing your money now with Boligfondet',
+    noRecord: 'No Record Found',
+    placeHolder: 'Search by name...'
   }
 };
 

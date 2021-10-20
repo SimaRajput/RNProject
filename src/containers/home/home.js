@@ -1,64 +1,78 @@
 import React from 'react';
-import { View, Text, FlatList, TouchableOpacity, Dimensions,Image } from 'react-native';
+import { View, Text, FlatList, TouchableOpacity, Image,ActivityIndicator } from 'react-native';
 import TimerMixin from 'react-timer-mixin';
 import ReactMixin from 'react-mixin';
 import { arrayOf, shape, string, func } from 'prop-types';
 import { connect } from 'react-redux';
-import { Header, Rows, NoRecordFound,BarChart} from '../../components';
+import { Header, Rows, NoRecordFound, BarChart, TitleView } from '../../components';
 import Constants from '../../constants';
 import * as userActions from '../../actions/user-actions-types';
+import * as propertyActions from '../../actions/property-action-types';
 import styles from './home-styles';
 import StaticData from '../../utilities/static-data';
 // import { LineChart, XAxis, Grid, BarChart } from 'react-native-svg-charts'
 import Carousel, { Pagination } from 'react-native-snap-carousel' // 3.6.0
 import VerticalBarGraph from '@chartiful/react-native-vertical-bar-graph'
 import {
-  LineChart,
+  // LineChart,
   PieChart,
   ProgressChart,
   ContributionGraph,
   StackedBarChart
 } from "react-native-chart-kit";
+import { Defs, LinearGradient, Stop } from 'react-native-svg';
+import { LineChart, Grid } from 'react-native-svg-charts';
 
 
-const dotIcons = [
-  {
-    index:0,
-    icon:require('../../assets/images/coin.png'),
-    iconActive:require('../../assets/images/coin_active.png'),
-  },
-  {
-    index:1,
-    icon:require('../../assets/images/money.png'),
-    iconActive:require('../../assets/images/money-active.png'),
-  },
-  {
-    index:2,
-    icon:require('../../assets/images/stock.png'),
-    iconActive:require('../../assets/images/stock_active.png'),
-  }
-]
+
+const linearData = [ 50, 10, 40, 95, -4, -24, 85, 91, 35, 53, -53, 24, 50, -20, -80 ]
 
 class Home extends React.Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      activeSlide: 0
+      activeSlide: 0,
+      propertyData: []
     }
   }
 
 
+  onRefresh = () => {
+    const {
+      refreshPropertyList,
+      fetchPropertyList
+    } = this.props;
+    refreshPropertyList();
+    fetchPropertyList({
+      callBack: (result) => { this.setState({ propertyData: result}) },
+    });
+  };
+
+  componentDidMount(){
+    this.onRefresh();
+  }
+
+
+   Gradient = () => (
+    <Defs key={'gradient'}>
+        <LinearGradient id={'gradient'} x1={'0'} y={'0%'} x2={'100%'} y2={'0%'}>
+            <Stop offset={'0%'} stopColor={Constants.Colors.PRIMARY_COLOR}/>
+            <Stop offset={'100%'} stopColor={Constants.Colors.PRIMARY_COLOR}/>
+        </LinearGradient>
+    </Defs>
+)
+
 
   renderComponent = ({ item }) => {
     const data = [
-      { label: 'Jan', value: 500, bottomLabel:'1ar',status:0 },
-      { label: 'Feb', value: 312,  bottomLabel:'6m' ,status:1 },
-      { label: 'Mar', value: 424,  bottomLabel:'12m' ,status:1 },
-      { label: 'Apr', value: 745,  bottomLabel:'3ar',status:0  },
-      { label: 'May', value: 89 ,  bottomLabel:'1ar',status:1 },
-      { label: 'Jun', value: 434 ,  bottomLabel:'5ar',status:1 },
-      { label: 'July', value: 634 ,  status:0 },
+      { label: 'Jan',  value: 500,  bottomLabel:'1ar', status:0 },
+      { label: 'Feb',  value: 312,  bottomLabel:'6m',  status:1 },
+      { label: 'Mar',  value: 424,  bottomLabel:'12m', status:1 },
+      { label: 'Apr',  value: 745,  bottomLabel:'3ar', status:0 },
+      { label: 'May',  value: 89 ,  bottomLabel:'1ar', status:1 },
+      { label: 'Jun',  value: 434 , bottomLabel:'5ar', status:1 },
+      { label: 'July', value: 634 , status:0 },
      
     ]
     const fill = Constants.Colors.PRIMARY_COLOR
@@ -67,23 +81,7 @@ class Home extends React.Component {
     const data2 = [9, 7, 12, 9]
       .map((value) => ({ value }))
 
-    const barData = [
-      {
-        data: data1,
-        svg: {
-          fill: Constants.Colors.PRIMARY_COLOR,
-          x: -10,
-
-        },
-      },
-      {
-        data: data2,
-        svg: {
-          fill: Constants.Colors.LIGHT_GREEN,
-
-        },
-      },
-    ]
+  
     const { hi, padinDevident, totalValue } = Constants.i18n.dashboard;
     switch (this.state.activeSlide) {
       case 0:
@@ -94,26 +92,26 @@ class Home extends React.Component {
               <View style={styles.topContainer}>
                 <Text style={styles.itemKey}>{padinDevident}</Text>
                 <View style={styles.rowContainer}>
-                  <Text style={styles.itemValue}>{item.value}</Text>
+                  <Text style={styles.itemValue}>{'+83 70'}</Text>
                 </View>
                 <View style={styles.rowContainer1}>
-                  <Text style={styles.itemValue}>{item.value}</Text>
+                  <Text style={styles.itemValue}>{'+2.64%'}</Text>
                 </View>
               </View>
               <View style={styles.secondTopContainer}>
                 <Text style={styles.itemKey}>{'Awkast Aksjer / ar'}</Text>
                 <View style={styles.rowContainer}>
-                  <Text style={styles.itemValue}>{item.value}</Text>
+                  <Text style={styles.itemValue}>{'+83 70'}</Text>
                 </View>
                 <View style={styles.rowContainer1}>
-                  <Text style={styles.itemValue}>{item.value}</Text>
+                  <Text style={styles.itemValue}>{'+2.64%'}</Text>
                 </View>
               </View>
               <View style={styles.secondTopContainer}>
                 <View>
                   <Text style={styles.titleText1}>{totalValue}</Text>
 
-                  <Text style={styles.itemValue1}>{item.value}</Text>
+                  <Text style={styles.itemValue1}>{'3 382 000 NOK · +9.42%'}</Text>
                 </View>
                 <Constants.Images.LogoHeader style={styles.iconStyle} />
               </View>
@@ -123,9 +121,26 @@ class Home extends React.Component {
         break;
 
       case 1:
+        const barData = [
+        {
+          data: data1,
+          svg: {
+            fill: Constants.Colors.PRIMARY_COLOR,
+            x: -10,
+  
+          },
+        },
+        {
+          data: data2,
+          svg: {
+            fill: Constants.Colors.LIGHT_GREEN,
+  
+          },
+        },
+      ]
         return (
-          <View style={{ height: 200, justifyContent: 'center',}}>
-            <View style={{ flexDirection: 'row', justifyContent: 'space-between' ,alignItems:'center'}}>
+          <View style={styles.barChatContainer}>
+            <View style={styles.barChatSubContainer}>
               <Text style={styles.textInfo}>{'2.6 %'}</Text>
               <Text style={styles.textInfo1}>{'84,375'}</Text>
             </View>
@@ -138,36 +153,17 @@ class Home extends React.Component {
       case 2:
         return (
           <LineChart
-          data={{
-            labels: ["January", "February", "March", "April", "May", "June"],
-            datasets: [
-              { data: [0, 0, 0, 80, 99, 43]}
-            ]
+          style={ { height: 200 } }
+          data={ linearData }
+          contentInset={ { top: 20, bottom: 20 } }
+          svg={{
+              strokeWidth: 2,
+              stroke: 'url(#gradient)',
           }}
-          width={Dimensions.get("window").width}
-          height={220}
-          yAxisLabel="$"
-          yAxisSuffix="k"
-          yAxisInterval={1} // optional, defaults to 1
-          chartConfig={{
-            decimalPlaces: 2, // optional, defaults to 2dp
-            color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
-            labelColor: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
-            style: {
-              borderRadius: 16
-            },
-            propsForDots: {
-              r: "6",
-              strokeWidth: "2",
-              stroke: "#ffa726"
-            }
-          }}
-          bezier
-          style={{
-            marginVertical: 8,
-            borderRadius: 16
-          }}
-        />
+      >
+          <Grid/>
+        {this.Gradient()}
+      </LineChart>
         )
         break;
     }
@@ -188,20 +184,27 @@ class Home extends React.Component {
 
 
   renderItem = ({ item }) => {
-    return (
-      <Rows
-        title={item.title}
-        icon={item.icon}
-        value={item.value}
-        rightIcon={item.status == 0 ? <Constants.Images.ArrowDown /> : <Constants.Images.ArrowUp />}
-        isShowBottomView
-      />
+    console.log('item>>',item.images)
+    return(
+    item.images.map((item) => (
+         <Rows
+           title={item.name}
+           icon={item?.url}
+           value={"NA"}
+           // rightIcon={item?.status == 0 ? <Constants.Images.ArrowDown /> : <Constants.Images.ArrowUp />}
+          isShowBottomView
+         />
+      
+    ))
     )
+   
   }
 
   render() {
 
-    const { myProperty, viewAll } = Constants.i18n.dashboard;
+    const { myProperty, viewAll, message, desciption, noRecord } = Constants.i18n.dashboard;
+    const { propertyData } = this.state;
+    const { fetchPropertyListStatus } = this.props;
 
 
     return (
@@ -211,6 +214,9 @@ class Home extends React.Component {
           style={styles.headerStyle}
           rightIconName={Constants.Images.drawr}
           rightIconStyle={styles.rightIconStyle} />
+          <TitleView title={'Min Oversikt'}/>
+          {StaticData.propertyDetailData ?
+          <View>
            <View style={styles.crouselContainer}>
           <Carousel
             ref={ ref => this.carouselRef = ref }
@@ -226,11 +232,12 @@ class Home extends React.Component {
         <Pagination
          dotsLength={3}
           renderDots={ activeIndex => (
-            dotIcons.map((screen, i) => ( console.log('scsc',activeIndex),
+            StaticData.dotIcons.map((screen, i) => (
               <TouchableOpacity
+                activeOpacity={0.7}
                 style={styles.iconMainView}
                 key={ i }
-               onPress={() => {
+                onPress={() => {
                   this.carouselRef._snapToItem(this.carouselRef._getPositionIndex(i));
                 }}
               >
@@ -242,20 +249,26 @@ class Home extends React.Component {
           activeDotIndex={ this.state.activeSlide }
         />
         </View>
+        </View>: <View style={styles.norecordContainer}><Text style={styles.noRecordText}>{noRecord}</Text></View>}
         <View style={styles.titleView}>
           <Text style={styles.title} >{myProperty}</Text>
-          <TouchableOpacity>
-            <Text style={styles.viewAll} >{viewAll}</Text>
-          </TouchableOpacity>
+           {propertyData.length ? <TouchableOpacity>
+            {/* <Text style={styles.viewAll} >{viewAll}</Text> */}
+          </TouchableOpacity>:null}
         </View>
 
         <FlatList
           style={styles.container}
-          data={StaticData.propertyDetailData}
+          data={propertyData}
           renderItem={this.renderItem}
+          // onRefresh={this.onRefresh}
+          refreshing={fetchPropertyListStatus === 'fetching'}
           keyExtractor={(item => item.id)}
           showsVerticalScrollIndicator={false}
-          ListEmptyComponent={<NoRecordFound message={`No Record Found`} />}
+          ListEmptyComponent={
+            (fetchPropertyListStatus === 'fetching' && propertyData?.length === 0)
+              ? <ActivityIndicator color={Constants.Colors.PRIMARY_COLOR}/>
+              : <NoRecordFound message={message} description={desciption} />}
         />
       </View>
     );
@@ -265,6 +278,16 @@ class Home extends React.Component {
 
 ReactMixin(Home.prototype, TimerMixin);
 
+const mapStateToProps = ({ property: { propertyListData, fetchPropertyListStatus } }) => ({
+  propertyListData,
+  fetchPropertyListStatus
+});
 
-export default Home;
+const mapDispatchToProps = {
+  fetchPropertyList: propertyActions.fetchPropertyList,
+  refreshPropertyList: propertyActions.refreshPropertyList,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home);
+
 

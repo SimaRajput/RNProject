@@ -4,6 +4,7 @@ import { toastReducer as toast } from 'react-native-redux-toast';
 import app from './app';
 import nav from './nav';
 import user from './user';
+import property from './property'
 
 const config = {
   blacklist: ['app', 'nav', 'toast'],
@@ -16,6 +17,7 @@ const reducers = persistCombineReducers(config, {
   nav,
   toast,
   user,
+  property
 });
 
 export default reducers;

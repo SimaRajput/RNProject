@@ -64,5 +64,26 @@ const documentsData = [
 
 ]
 
+const dotIcons = [
+  {
+    index:0,
+    icon:require('../assets/images/coin.png'),
+    iconActive:require('../assets/images/coin_active.png'),
+  },
+  {
+    index:1,
+    icon:require('../assets/images/money.png'),
+    iconActive:require('../assets/images/money-active.png'),
+  },
+  {
+    index:2,
+    icon:require('../assets/images/stock.png'),
+    iconActive:require('../assets/images/stock_active.png'),
+  }
+]
+
+
+
 exports.propertyDetailData = propertyDetailData;
-exports.documentsData = documentsData
+exports.documentsData = documentsData;
+exports.dotIcons = dotIcons;

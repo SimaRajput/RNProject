@@ -31,7 +31,7 @@ class LoginSecurity extends PureComponent {
       </TouchableOpacity>
       <Text style={AuthStyles.textLabel}>{faceDetector}</Text>
       <Text style={AuthStyles.orText}>{or.toUpperCase()}</Text>
-      <TouchableOpacity style={AuthStyles.logoContainer}>
+      <TouchableOpacity style={AuthStyles.logoContainer} onPress={()=> navigate('Login')}>
       <Constants.Images.Scan/>
       </TouchableOpacity>
       <Text style={AuthStyles.textLabel}>{fingerPrint}</Text>

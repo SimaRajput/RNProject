@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
       borderColor: Constants.Colors.GRAY,
       marginTop:(Constants.BaseStyle.DEVICE_HEIGHT / 100) * 2.5,
     },
-    rowContainer: {
+    rowContainers: {
       flexDirection:'row',
     },
     icon: {
@@ -82,7 +82,7 @@ const styles = StyleSheet.create({
         borderRadius: 16,
         justifyContent: 'center',
         alignItems: 'center',
-        width:'25%',
+        width:'30%',
         alignSelf:'center',
         ...Constants.BaseStyle.SHADOW_STYLE
       },
@@ -125,6 +125,10 @@ const styles = StyleSheet.create({
       },
       iconStyle: {
         top:20,
+      },
+      iconStyles: {
+        top:20,
+        right:40
       },
       textStyles1: {
         ...Constants.Fonts.OpenSans.extraSmallRegular,
@@ -197,7 +201,7 @@ const styles = StyleSheet.create({
       },
       aksjeStyle: {
         marginTop:(Constants.BaseStyle.DEVICE_HEIGHT / 100) * 3,
-        bottom:30
+        bottom:30,
       },
       overSickContainer: {
         flexDirection:'row',
@@ -226,36 +230,39 @@ const styles = StyleSheet.create({
       },
       documentsContainer: {
         paddingHorizontal:(Constants.BaseStyle.DEVICE_HEIGHT / 100) * 2,
-        borderRadius: 12,
-        borderColor: Constants.Colors.BORDER_COLOR_2,
-        borderWidth:1,
+        // borderRadius: 12,
+        // borderColor: Constants.Colors.BORDER_COLOR_2,
+        // borderWidth:1,
         backgroundColor: Constants.Colors.WHITE,
-        ...Constants.BaseStyle.SHADOW_STYLE,
+        // ...Constants.BaseStyle.SHADOW_STYLE,
         marginTop: (Constants.BaseStyle.DEVICE_HEIGHT / 100) * 2,
         paddingVertical:15,
       },
       documentItems: {
         flexDirection:'row',
         justifyContent:'space-between',
-        marginHorizontal:5,
-        marginTop:5
+        // marginHorizontal:5,
+        marginTop:5,
+       
       },
       docTitleText: {
-        ...Constants.Fonts.OpenSans.large,
-        right:5
+        ...Constants.Fonts.OpenSans.extraSmallRegular,
+        // right:5
+        marginBottom:5
       },
       docSubContainer: {
         alignItems:'center'
       },
       docViewStyle: {
-        flexDirection:'row',
-        justifyContent:'center',
+        // flexDirection:'row',
         alignItems:'center',
-        marginBottom:10
+        // marginBottom:10
+        right:15
       },
       docTitle: {
-        top:2,
-        ...Constants.Fonts.OpenSans.smallRegular,
+        // top:2,
+        ...Constants.Fonts.OpenSans.maxSmallRegular,
+        padding:5
       },
       infoContainer: {
         paddingHorizontal:(Constants.BaseStyle.DEVICE_HEIGHT / 100) * 2,
@@ -269,23 +276,134 @@ const styles = StyleSheet.create({
         marginBottom:10
       },
       infoSubContainer: {
-        flexDirection:'row',
-        alignSelf:'center'
+        // justifyContent:'center',
+        top:20
+      },
+      infoMainContainer: {
+        flexDirection:'row',justifyContent:'space-between'
       },
       infoRowContainer: {
         flexDirection:'row',
         justifyContent:'space-between',
-        padding:5
+        padding:3
       },
       infoKey: {
-        ...Constants.Fonts.OpenSans.regular
+        ...Constants.Fonts.OpenSans.regular,
+        right:8
       },
       infoValue: {
-        ...Constants.Fonts.OpenSans.regularBold
+        ...Constants.Fonts.OpenSans.regularBold,
+        left:5
       },
       infoTitle: {
         ...Constants.Fonts.OpenSans.large
-      }
+      },
+      arrowIcon: {
+        height: 15, 
+        width: 15 
+      },
+      mainTop: {
+        flexDirection: 'row'
+      },
+      nextIcon: {
+        top: 30,
+        left:10
+      },
+      prevIcon: {
+        top: 30 ,
+        marginLeft:30
+      },
+      crouselContainer: {
+        backgroundColor:Constants.Colors.WHITE,
+        width:'95%',
+        alignSelf:'center',
+        borderRadius:8,
+        borderWidth:.5,
+        borderColor: Constants.Colors.BORDER_COLOR_2,
+        marginTop :(Constants.BaseStyle.DEVICE_HEIGHT / 100) * 6,
+        ...Constants.BaseStyle.SHADOW_STYLE,
+        paddingVertical:20,
+        height:240,
+    },
+    paginationMainView: {
+      position: 'absolute',
+      alignItems: 'center',
+      alignSelf: 'center',
+      justifyContent: 'center',
+      top:262,
+      elevation:5,
+      zIndex:5
+      
+    },
+    iconMainView: {
+      paddingHorizontal:15
+    },
+    iconView: {
+      height:30,
+      width:30
+    },
+    subConatiner: {
+      paddingHorizontal:5
+    },
+    titleText: {
+      ...Constants.Fonts.OpenSans.large
+    },
+    topContainer: {
+      flexDirection:'row',
+      alignItems:'center',
+      justifyContent:'space-between',
+      marginTop:(Constants.BaseStyle.DEVICE_HEIGHT / 100) * 3,
+    },
+    secondTopContainer: {
+      flexDirection:'row',
+      alignItems:'center',
+      justifyContent:'space-between',
+      marginTop:(Constants.BaseStyle.DEVICE_HEIGHT / 100) * 4,
+    },
+    barChatContainer: {
+      height: 200, 
+      justifyContent: 'center'
+    },
+    barChatSubContainer: {
+      flexDirection: 'row', 
+      justifyContent: 'space-between' ,
+      alignItems:'center'
+    },
+    itemValue: {
+      ...Constants.Fonts.OpenSans.semiSmallBold,
+    },
+    rowContainer: {
+      paddingHorizontal:5,
+      height:30,
+      borderRadius:4,
+      alignItems:'center',
+      justifyContent:'center',
+      position:'absolute',
+      right:40
+    },
+    rowContainer1: {
+      paddingHorizontal:5,
+      height:30,
+      borderRadius:4,
+      alignItems:'center',
+      justifyContent:'center',
+      position:'absolute',
+      left:150
+    },
+    textInfo: {
+      color: Constants.Colors.PRIMARY_COLOR,
+      ...Constants.Fonts.Helvetica.regular
+    },
+    textInfo1: {
+      color: Constants.Colors.PRIMARY_COLOR,
+      ...Constants.Fonts.Helvetica.regular,
+      right:40
+    },
+    itemValue1: {
+      ...Constants.Fonts.Helvetica.regular,
+      color: Constants.Colors.PRIMARY_COLOR,
+      top:10 
+    },
     
     
   

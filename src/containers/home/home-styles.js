@@ -5,7 +5,7 @@ const styles = StyleSheet.create({
     container: {
       backgroundColor: Constants.Colors.WHITE,
       flex: 1,
-      top:10
+      top:5
 
     },
     rowStyle:  { 
@@ -29,14 +29,14 @@ const styles = StyleSheet.create({
       bottom:80
     },
     titleView: {
-    marginTop:20,
+    marginTop:40,
     paddingHorizontal: (Constants.BaseStyle.DEVICE_HEIGHT / 100) * 2,
     flexDirection:'row',
     justifyContent:'space-between',
     alignItems:'center'
     },
     title: {
-      ...Constants.Fonts.OpenSans.extraLargeBold,
+      ...Constants.Fonts.Helvetica.extraLargeBold,
     },
     viewAll: {
       ...Constants.Fonts.OpenSans.smallBold,
@@ -46,7 +46,8 @@ const styles = StyleSheet.create({
       paddingHorizontal:5
     },
     titleText: {
-      ...Constants.Fonts.OpenSans.large
+      ...Constants.Fonts.OpenSans.large,
+      color: Constants.Colors.PRIMARY_COLOR,
     },
     titleText1: {
       ...Constants.Fonts.OpenSans.smallBold,
@@ -59,7 +60,9 @@ const styles = StyleSheet.create({
       ...Constants.Fonts.OpenSans.semiSmallBold,
     },
     itemValue1: {
-      ...Constants.Fonts.OpenSans.regular,
+      ...Constants.Fonts.Helvetica.regular,
+      color: Constants.Colors.PRIMARY_COLOR,
+      top:10  
     },
     topContainer: {
       flexDirection:'row',
@@ -74,8 +77,6 @@ const styles = StyleSheet.create({
       marginTop:(Constants.BaseStyle.DEVICE_HEIGHT / 100) * 4,
     },
     rowContainer: {
-      borderColor:Constants.Colors.BUTTON_COLOR,
-      borderWidth:1,
       paddingHorizontal:5,
       height:30,
       borderRadius:4,
@@ -85,8 +86,6 @@ const styles = StyleSheet.create({
       right:120
     },
     rowContainer1: {
-      borderColor:Constants.Colors.BUTTON_COLOR,
-      borderWidth:1,
       paddingHorizontal:5,
       height:30,
       borderRadius:4,
@@ -113,7 +112,7 @@ const styles = StyleSheet.create({
       width:'95%',
       alignSelf:'center',
       borderRadius:8,
-      borderWidth:.5,
+      borderWidth:2,
       borderColor: Constants.Colors.BORDER_COLOR_2,
       marginTop :(Constants.BaseStyle.DEVICE_HEIGHT / 100) * 4,
       ...Constants.BaseStyle.SHADOW_STYLE,
@@ -125,7 +124,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     alignSelf: 'center',
     justifyContent: 'center',
-    top:272,
+    top:212,
     elevation:5,
     zIndex:5
     
@@ -137,6 +136,33 @@ const styles = StyleSheet.create({
     height:30,
     width:30
   },
+  norecordContainer: {
+    backgroundColor:Constants.Colors.WHITE,
+    width:'95%',
+    alignSelf:'center',
+    borderRadius:8,
+    borderWidth:.5,
+    borderColor: Constants.Colors.BORDER_COLOR_2,
+    marginTop :(Constants.BaseStyle.DEVICE_HEIGHT / 100) * 4,
+    ...Constants.BaseStyle.SHADOW_STYLE,
+    paddingVertical:20,
+    height:230,
+    justifyContent:'center',
+    alignItems:'center'
+  },
+  noRecordText: {
+    color: Constants.Colors.PRIMARY_COLOR,
+      ...Constants.Fonts.Helvetica.regular,
+  },
+  barChatContainer: {
+    height: 200, 
+    justifyContent: 'center'
+  },
+  barChatSubContainer: {
+    flexDirection: 'row', 
+    justifyContent: 'space-between' ,
+    alignItems:'center'
+  }
   
   
   });

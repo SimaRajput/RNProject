@@ -74,7 +74,7 @@ const styles = StyleSheet.create({
     },
     bottomText: {
       textAlign:'center',
-      top:30,
+      top:20,
       ...Constants.Fonts.OpenSans.regular
     },
     headerStyle: {

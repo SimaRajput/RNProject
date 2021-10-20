@@ -3,7 +3,7 @@
 
 export default class Connection {
   static getBaseUrl() {
-    return "https://facebook.github.io/react-native/movies.json";
+    return "https://boligfondetpre.azurewebsites.net/";
   }
 
   static getMedia(id) {

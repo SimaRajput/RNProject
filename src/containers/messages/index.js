@@ -4,7 +4,7 @@ import Constants from '../../constants';
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: Constants.Colors.DASHBOARD_BG_COLOR,
+    backgroundColor: Constants.Colors.WHITE,
     flex: 1,
   },
   itemContainer: {

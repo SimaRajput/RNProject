@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, View, Platform, StatusBar} from 'react-native';
+import {StyleSheet, View, Platform, StatusBar, SafeAreaView} from 'react-native';
 import {Toast} from 'react-native-redux-toast';
 import Navigator from './config/navigator';
 import Constants from './constants';
@@ -20,6 +20,7 @@ const styles = StyleSheet.create({
 });
 
 const Root = () => (
+  <SafeAreaView style={{flex:1}}>
   <View style={styles.container}>
     {Platform.OS === 'android' && (
       <StatusBar backgroundColor={Constants.Colors.WHITE} barStyle={'dark-content'}/>
@@ -33,6 +34,7 @@ const Root = () => (
       messageStyle={styles.messageStyle}
     />
   </View>
+  </SafeAreaView>
 );
 
 export default Root;
